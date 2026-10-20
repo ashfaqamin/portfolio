@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Coming Soon</title>
+<meta name="description" content="An updated UX design portfolio is on the way." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#EAE5D7;
+    --ink:#1C1B19;
+    --teal:#284A46;
+    --amber:#E5A02B;
+    --dot:#A8A291;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html,body{ height:100%; }
+
+  body{
+    font-family:"Space Grotesk", system-ui, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* Halftone dot field — denser toward the top-right, fading out lower-left */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:radial-gradient(var(--dot) 1.4px, transparent 1.6px);
+    background-size:15px 15px;
+    -webkit-mask-image:radial-gradient(130% 115% at 88% 6%, #000 10%, rgba(0,0,0,.3) 44%, transparent 70%);
+            mask-image:radial-gradient(130% 115% at 88% 6%, #000 10%, rgba(0,0,0,.3) 44%, transparent 70%);
+    opacity:.6;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .frame{
+    position:relative;
+    z-index:1;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    padding:clamp(22px, 4.5vw, 56px);
+  }
+
+  /* Top bar */
+  .top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    font-family:"Space Mono", monospace;
+    font-size:clamp(11px, 1.3vw, 13px);
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand .mark{
+    width:14px; height:14px; border-radius:50%;
+    background:var(--amber);
+    box-shadow:0 0 0 3px var(--paper), 0 0 0 4px var(--ink);
+  }
+  .top .status{ display:flex; align-items:center; gap:9px; opacity:.72; }
+  .top .status .blip{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--teal);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+
+  /* Center stage */
+  .stage{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:clamp(30px, 5vw, 54px);
+    padding:40px 0;
+  }
+
+  /* The emblem — teal disc + marigold core + satellite, echoing the poster */
+  .emblem{
+    position:relative;
+    width:clamp(180px, 34vw, 300px);
+    aspect-ratio:1;
+    animation:breathe 7s ease-in-out infinite;
+  }
+  .emblem .disc{
+    position:absolute; inset:0;
+    border-radius:50%;
+    background:var(--teal);
+    overflow:hidden;
+  }
+  .emblem .disc::after{  /* dots inside the teal, like the reference */
+    content:"";
+    position:absolute; inset:0;
+    background-image:radial-gradient(rgba(14,26,24,.55) 1.5px, transparent 1.7px);
+    background-size:15px 15px;
+  }
+  .emblem .core{
+    position:absolute;
+    width:52%; height:52%;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:var(--amber);
+    z-index:2;
+  }
+  .emblem .satellite{
+    position:absolute;
+    width:30%; height:30%;
+    left:-8%; bottom:-6%;
+    border-radius:50%;
+    background:var(--paper);
+    display:grid; place-items:center;
+    z-index:3;
+  }
+  .emblem .satellite::after{
+    content:"";
+    width:62%; height:62%;
+    border-radius:50%;
+    background:var(--ink);
+  }
+
+  /* Typography */
+  .headline .eyebrow{
+    font-family:"Space Mono", monospace;
+    font-size:clamp(12px, 1.6vw, 15px);
+    letter-spacing:.34em;
+    text-transform:uppercase;
+    opacity:.6;
+    margin-bottom:clamp(10px, 1.6vw, 18px);
+  }
+  .headline h1{
+    font-weight:700;
+    line-height:.92;
+    letter-spacing:-.02em;
+    font-size:clamp(44px, 12vw, 128px);
+    text-transform:uppercase;
+  }
+  .headline h1 .thin{
+    display:block;
+    font-weight:400;
+    letter-spacing:.02em;
+    font-size:.42em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:.18em;
+  }
+  .sub{
+    margin-top:clamp(20px, 3vw, 30px);
+    font-size:clamp(14px, 1.9vw, 18px);
+    line-height:1.5;
+    max-width:36ch;
+    opacity:.78;
+    margin-left:auto; margin-right:auto;
+  }
+
+  /* Footer */
+  .foot{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:16px;
+    font-family:"Space Mono", monospace;
+    font-size:clamp(11px, 1.3vw, 13px);
+    letter-spacing:.08em;
+  }
+  .foot a{ color:inherit; text-decoration:none; border-bottom:1px solid rgba(28,27,25,.3); padding-bottom:2px; }
+  .foot a:hover{ border-color:var(--amber); }
+  .foot .rule{ opacity:.5; text-transform:uppercase; letter-spacing:.14em; }
+
+  @keyframes pulse{
+    0%,100%{ transform:scale(1); opacity:1; }
+    50%{ transform:scale(1.5); opacity:.4; }
+  }
+  @keyframes breathe{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .emblem,.top .status .blip{ animation:none; }
+  }
+
+  @media (max-width:560px){
+    .top .status span.label{ display:none; }
+    .foot{ flex-direction:column; align-items:center; text-align:center; gap:10px; }
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+
+    <!-- ===== EDIT: your name / initials ===== -->
+    <header class="top">
+      <div class="brand">
+        <span class="mark"></span>
+        <span>Ashfaq Amin</span>
+      </div>
+      <div class="status">
+        <span class="blip"></span>
+        <span class="label">In progress</span>
+      </div>
+    </header>
+
+    <main class="stage">
+      <div class="emblem" aria-hidden="true">
+        <div class="disc"></div>
+        <div class="core"></div>
+        <div class="satellite"></div>
+      </div>
+
+      <div class="headline">
+        <p class="eyebrow">Updated site</p>
+        <h1><span class="thin">The portfolio is being rebuilt</span>Coming&nbsp;Soon</h1>
+        <p class="sub">A refreshed UX design portfolio is on the way. New case studies, same curiosity. Check back shortly.</p>
+      </div>
+    </main>
+
+    <!-- ===== EDIT: your email / links ===== -->
+    <footer class="foot">
+      <span class="rule">Portfolio · 2026</span>
+      <a href="mailto:ashfaq.m.amin@gmail.com">ashfaq.m.amin@gmail.com</a>
+    </footer>
+
+  </div>
+</body>
+</html>
