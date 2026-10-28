@@ -1,0 +1,19 @@
+.img-float-left{
+  float: left;
+  margin-right: 0.6em;
+}
+.img-float-left.cardboard{
+  width: 20vw;
+  
+}
+.special-container{
+  width: 90%;
+  padding-top:0;
+  padding-bottom: 0;
+}
+@media (min-width: 768px){
+  .special-container{
+  width: 65%;
+  background-color: #F5F5F5;
+  }
+}

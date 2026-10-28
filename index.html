@@ -1,242 +1,423 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Coming Soon</title>
-<meta name="description" content="An updated UX design portfolio is on the way." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-<style>
-  :root{
-    --paper:#EAE5D7;
-    --ink:#1C1B19;
-    --teal:#284A46;
-    --amber:#E5A02B;
-    --dot:#A8A291;
-  }
 
-  *{ box-sizing:border-box; margin:0; padding:0; }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="UX Portfolio of Ashfaq Amin. Design projects, Research and Publications">
+    <meta name="author" content="Ashfaq Amin">
 
-  html,body{ height:100%; }
+    <meta property="og:site_name" content="Ashfaq Amin"/>
+    <meta property="og:title" content="Ashfaq's Portfolio" />
+    <meta property="og:description" content="UX Case Studies, Interaction Design, Visual Design, UX Research, User Studies" />
+    <meta property="og:image" content="brand.jpg" />
+    <meta property="og:url" content="http://ashfaqamin.com/">
+    <meta property="og:type" content="UX Portfolio, HCI, Interaction Designer, UX Designer, Service Designer, Work Experience, Research, Publications, Multidisciplinary"/>
 
-  body{
-    font-family:"Space Grotesk", system-ui, sans-serif;
-    background:var(--paper);
-    color:var(--ink);
-    min-height:100dvh;
-    display:flex;
-    flex-direction:column;
-    position:relative;
-    overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
-  }
+    <title>Ashfaq Amin | UX Designer, Researcher</title>
 
-  /* Halftone dot field — denser toward the top-right, fading out lower-left */
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:radial-gradient(var(--dot) 1.4px, transparent 1.6px);
-    background-size:15px 15px;
-    -webkit-mask-image:radial-gradient(130% 115% at 88% 6%, #000 10%, rgba(0,0,0,.3) 44%, transparent 70%);
-            mask-image:radial-gradient(130% 115% at 88% 6%, #000 10%, rgba(0,0,0,.3) 44%, transparent 70%);
-    opacity:.6;
-    pointer-events:none;
-    z-index:0;
-  }
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  .frame{
-    position:relative;
-    z-index:1;
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    padding:clamp(22px, 4.5vw, 56px);
-  }
+    <!-- Plugin CSS: Magnific pop-up -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" />
 
-  /* Top bar */
-  .top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
-    font-family:"Space Mono", monospace;
-    font-size:clamp(11px, 1.3vw, 13px);
-    letter-spacing:.14em;
-    text-transform:uppercase;
-  }
-  .brand{ display:flex; align-items:center; gap:10px; }
-  .brand .mark{
-    width:14px; height:14px; border-radius:50%;
-    background:var(--amber);
-    box-shadow:0 0 0 3px var(--paper), 0 0 0 4px var(--ink);
-  }
-  .top .status{ display:flex; align-items:center; gap:9px; opacity:.72; }
-  .top .status .blip{
-    width:7px; height:7px; border-radius:50%;
-    background:var(--teal);
-    animation:pulse 2.4s ease-in-out infinite;
-  }
+    <!-- Theme CSS -->
+    <link href="css/creative.css" rel="stylesheet">
+   
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="image_src" href="brand.jpg" />
 
-  /* Center stage */
-  .stage{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    gap:clamp(30px, 5vw, 54px);
-    padding:40px 0;
-  }
+    
 
-  /* The emblem — teal disc + marigold core + satellite, echoing the poster */
-  .emblem{
-    position:relative;
-    width:clamp(180px, 34vw, 300px);
-    aspect-ratio:1;
-    animation:breathe 7s ease-in-out infinite;
-  }
-  .emblem .disc{
-    position:absolute; inset:0;
-    border-radius:50%;
-    background:var(--teal);
-    overflow:hidden;
-  }
-  .emblem .disc::after{  /* dots inside the teal, like the reference */
-    content:"";
-    position:absolute; inset:0;
-    background-image:radial-gradient(rgba(14,26,24,.55) 1.5px, transparent 1.7px);
-    background-size:15px 15px;
-  }
-  .emblem .core{
-    position:absolute;
-    width:52%; height:52%;
-    top:50%; left:50%;
-    transform:translate(-50%,-50%);
-    border-radius:50%;
-    background:var(--amber);
-    z-index:2;
-  }
-  .emblem .satellite{
-    position:absolute;
-    width:30%; height:30%;
-    left:-8%; bottom:-6%;
-    border-radius:50%;
-    background:var(--paper);
-    display:grid; place-items:center;
-    z-index:3;
-  }
-  .emblem .satellite::after{
-    content:"";
-    width:62%; height:62%;
-    border-radius:50%;
-    background:var(--ink);
-  }
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-  /* Typography */
-  .headline .eyebrow{
-    font-family:"Space Mono", monospace;
-    font-size:clamp(12px, 1.6vw, 15px);
-    letter-spacing:.34em;
-    text-transform:uppercase;
-    opacity:.6;
-    margin-bottom:clamp(10px, 1.6vw, 18px);
-  }
-  .headline h1{
-    font-weight:700;
-    line-height:.92;
-    letter-spacing:-.02em;
-    font-size:clamp(44px, 12vw, 128px);
-    text-transform:uppercase;
-  }
-  .headline h1 .thin{
-    display:block;
-    font-weight:400;
-    letter-spacing:.02em;
-    font-size:.42em;
-    text-transform:uppercase;
-    color:var(--teal);
-    margin-bottom:.18em;
-  }
-  .sub{
-    margin-top:clamp(20px, 3vw, 30px);
-    font-size:clamp(14px, 1.9vw, 18px);
-    line-height:1.5;
-    max-width:36ch;
-    opacity:.78;
-    margin-left:auto; margin-right:auto;
-  }
 
-  /* Footer */
-  .foot{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:16px;
-    font-family:"Space Mono", monospace;
-    font-size:clamp(11px, 1.3vw, 13px);
-    letter-spacing:.08em;
-  }
-  .foot a{ color:inherit; text-decoration:none; border-bottom:1px solid rgba(28,27,25,.3); padding-bottom:2px; }
-  .foot a:hover{ border-color:var(--amber); }
-  .foot .rule{ opacity:.5; text-transform:uppercase; letter-spacing:.14em; }
 
-  @keyframes pulse{
-    0%,100%{ transform:scale(1); opacity:1; }
-    50%{ transform:scale(1.5); opacity:.4; }
-  }
-  @keyframes breathe{
-    0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(-10px); }
-  }
-  @media (prefers-reduced-motion:reduce){
-    .emblem,.top .status .blip{ animation:none; }
-  }
-
-  @media (max-width:560px){
-    .top .status span.label{ display:none; }
-    .foot{ flex-direction:column; align-items:center; text-align:center; gap:10px; }
-  }
-</style>
 </head>
-<body>
-  <div class="frame">
 
-    <!-- ===== EDIT: your name / initials ===== -->
-    <header class="top">
-      <div class="brand">
-        <span class="mark"></span>
-        <span>Ashfaq Amin</span>
-      </div>
-      <div class="status">
-        <span class="blip"></span>
-        <span class="label">In progress</span>
-      </div>
+<body id="page-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="index.html"><img src="img/logo.svg" alt="Ashfaq Amin" class="brand-logo"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="index.html#portfolio">Portfolio</a>
+                </li>
+                 <li>
+                    <a href="research.html">Academic Research</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+ <a href="#page-top" class="btn-primary back-to-top page-scroll"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></a>
+
+    <header>
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 idcard">
+                        <img class="img-circle img-responsive pro-pic" src="img/pp.jpg" alt="Ashfaq's Photo">
+                        <h1>Ashfaq Amin</h1>
+                        <!--<hr class="light">-->
+                        <p>Hello! I'm a Toronto-based Senior UX Designer with 10+ years of industry experience, mostly in enterprise SaaS. I partner closely with cross-functional agile teams to drive product vision and roadmap, with a focus on AI and agentic UX, user-centered design, user research, and accessibility. Much of my process is validation-driven; I like to run usability sessions and pressure-test ideas early with rapid prototypes, whether vibecoded or built in Figma.</p>
+                        
+                        <a href="#portfolio" class="btn btn-primary cta-scroll">
+                            Check Out My Works<span class="glyphicon glyphicon-menu-down bounce" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!--<div class="col-sm-6">
+                        <img src="img/header-img.svg" class="img-fluid">
+                    </div>-->
+                    
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main class="stage">
-      <div class="emblem" aria-hidden="true">
-        <div class="disc"></div>
-        <div class="core"></div>
-        <div class="satellite"></div>
-      </div>
+    <section class="" id="portfolio">
+        <div class="container">
+            <div class="row" id="uxp">
+                <div class="col-lg-12 text-center section-heading">
+                    <h2>Portfolio</h2>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- <div class="container-fluid">
+            <div class="row no-gutter popup-gallery"> -->
+        <div class="container-fluid bg-lightdark" style="padding: 3em 0 3em 0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12 pbox" >
+                        <h3>Designing responsive<br> Web Applications</h3>
+                        <hr class="black">
+                        <p>How I designed responsive SaaS products from ideation to interactive mockups. The key challenge was to design about 70+ pages for all screens, and collaborate with teams overseas within a tight schedule.</p>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 pbox">
+                        <a href="tcc.html" class="portfolio-box">
+                            <img src="img/tcc/thumb.jpg" class="img-responsive" alt="TUNet Control Center Admin Dashboard UX Project">
+                            <h4 class="caption">Admin Dashboard for Smart Grid</h4>
+                            <p>UX Research, IA, Interaction Design, UI Design</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="arc.html" class="portfolio-box">
+                            <img src="img/arc/thumb.jpg" class="img-responsive" alt="Data Gathering App UX Project">
+                            <h4 class="caption">Data Gathering App</h4>
+                            <p>Material design, IXD, Axure RP, HTML5/ CSS3</p>
+                        </a>
+                    </div>
 
-      <div class="headline">
-        <p class="eyebrow">Updated site</p>
-        <h1><span class="thin">The portfolio is being rebuilt</span>Coming&nbsp;Soon</h1>
-        <p class="sub">A refreshed UX design portfolio is on the way. New case studies, same curiosity. Check back shortly.</p>
-      </div>
-    </main>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid " style="padding: 3em 0 3em 0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12 pbox" >
+                        <h3>Service Design<br> for the masses</h3>
+                        <hr class="black">
+                        <p>
+                            How I used <strong>UX Research</strong> to design services and multi-channel experiences for a Telecom operator's <strong>50 million</strong> customer base. 
+                        </p>
+                    </div>
+                    
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="gpstore.html" class="portfolio-box">
+                            <img src="img/gpstore/thumb.jpg" class="img-responsive" alt="gp store">
+                            <h4 class="caption">Design of a Content Store</h4>
+                            <p>Service Design, User Research, UI Design</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 pbox">
+                        <a href="fte.html" class="portfolio-box">
+                            <img src="img/FTE_gp/thumb.jpg" class="img-responsive" alt="First Time Experience UX Project">
+                            <h4 class="caption">First-Time User's Experience</h4>
+                            <p>Service design, User research, Customer Experience</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- ===== EDIT: your email / links ===== -->
-    <footer class="foot">
-      <span class="rule">Portfolio · 2026</span>
-      <a href="mailto:ashfaq.m.amin@gmail.com">ashfaq.m.amin@gmail.com</a>
-    </footer>
+        <div class="container-fluid bg-lightdark" style="padding: 3em 0 3em 0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12 pbox" >
+                        <h3>Quantitative, Qualitative<br> HCI Research</h3>
+                        <hr class="black">
+                        <p>A couple of my academic research projects in which I was the primary investigator, and followed different HCI research methods.</p>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 pbox">
+                        <a href="research-study-2_alt.html" class="portfolio-box">
+                            <img src="img/research/cover-2.jpg" class="img-responsive" alt="">
+                            <h4 class="caption">Mobile VR for Pain Management</h4>
+                            <p>HCI, User Research, VR, Publications</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 pbox">
+                        <a href="research-study-1.html" class="portfolio-box">
+                            <img src="img/research/cover-1.jpg" class="img-responsive" alt="">
+                            <h4 class="caption">Immersion in Mobile VR</h4>
+                            <p>HCI, Academic, Publications</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="padding: 3em 0 3em 0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12 pbox" >
+                        <h3 >Design Challenge, Mobile Apps, and Experimental Projects</h3>
+                        <hr class="black">
+                        <p>A few of my favorite small projects. More projects are on my <a href="https://www.behance.net/ashfaqamin" target="_blank">Behance</a> portfolio.</p>
+                        <p><a href="https://docs.google.com/presentation/d/1-GWN9YrMUX0LW0R5Lp7kxP1GjjnxNqoXTavIuzUC8fY/edit?usp=sharing">DF project</a></p>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 pbox">
+                        <a href="your-hotel.html" class="portfolio-box">
+                            <img src="img/urhotel/thumb.jpg" class="img-responsive" alt="your hotel">
+                            <h4 class="caption">A 4-hr Design Challenge</h4>
+                            <p>IXD, Service Design, UI design, Strategy</p>
+                        </a>
+                    </div>
 
-  </div>
+                    <div class="col-lg-4 col-sm-6 pbox">
+                        <a href="experimental-works.html" class="portfolio-box">
+                            <img src="img/experimental/thumb.jpg" class="img-responsive" alt="Experimental Design Works">
+                            <h4 class="caption">Experimental Works</h4>
+                            <p>IXD, Experiments</p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section><!-- portfolio -->
+
+
+    <section class="bg-lightdark" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center section-heading">
+                    <h2>More About Me</h2>
+                    
+                </div>
+                
+                <div class="col-md-4 col-sm-12">
+                    <hr class="black">
+                    <p>
+                        I got a multidisciplinary background in design, research, and development. I have an MSc in HCI from <a href="http://www.sfu.ca/siat.html" target="_blank">SIAT, SFU</a>. Most recently, I was a Senior Product Designer at <a href="https://www.hubspot.com/" target="_blank">HubSpot</a>.
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-12">
+                    <hr class="black">
+                    <p>
+                        Art is the love of my life. I am trained in traditional painting and sketching media. If you wish, please check out some of my <a href="https://www.flickr.com/photos/ayon_solitaire/albums/72157675432345410" target="_blank">artworks</a>.
+                    </p>
+                    <p>
+                        I also love photography, playing ukulele, outdoor games, cooking, and will take every opportunity to travel. So, if you got a job that requires traveling, I would be interested.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section> <!-- about -->
+
+    <!--
+    <section class="container" id="skills">
+        <div class="row">
+            <div class="col-lg-12 text-center section-heading">
+                <h2>Skills</h2>
+                <hr class="primary">
+            </div>
+
+            <div class="col-sm-12 skill-list">
+                <div class="col-sm-3">
+
+                    <h3>UX Research</h3>
+                    <p>
+                        User-centered Design<br>
+                        Quantitative methods<br>
+                        Qualitative methods<br>
+                        Participatory Design<br>
+                        JMP, SPSS, Tableau<br>
+                        In-depth Interviews<br>
+                        Focus groups<br>
+                        Guerrilla tests
+
+                    </p>
+                </div>
+
+                 <div class="col-sm-3">
+
+                    <h3>Interaction Design</h3>
+                    <p>
+                        Prototyping<br>
+                        Wireframing<br>
+                        Visual, UI Design<br>
+                        Sketch<br>
+                        Adobe Suits<br>
+                        Axure RP<br>
+                        Balsamiq Mockups<br>
+                        HTML5, CSS3, jQuery<br>
+                        InVision, Craft<br>
+                        Paper Sketches<br>
+                        Flinto<br>
+
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+
+                    <h3>Development</h3>
+                    <p>
+                        jQuery, JavaScript<br>
+                        MySQL<br>
+                        C/C++<br>
+                        Basic OOP, MVC, Data Structures, Database
+                    </p>
+                </div>
+                <div class="col-sm-3">
+
+                    <h3>More</h3>
+                    <p>
+                        Traditional Painting<br>
+                        Sketching<br>
+                        2D Illustration<br>
+                        Virtual Reality<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>  -->
+
+    <section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center section-heading">
+                <h2 class="">Get In Touch</h2>
+                
+            </div>
+            <div class="col-xs-4 text-center">
+                <span aria-hidden="true">
+                    <img src="img/social_icon/envelope.svg" class="img-responsive my-icon">
+                </span>
+                <p><a href="mailto:ashfaq.m.amin@gmail.com">ashfaq.m.amin@gmail.com</a></p>
+            </div>
+            <div class="col-xs-4 text-center">
+                <span aria-hidden="true">
+                    <img src="img/social_icon/linkedin-black.svg" class="img-responsive my-icon">
+                </span>
+                <p><a href="https://linkedin.com/in/ashfaqamin" target="_blank">LinkedIn</a></p>
+            </div>
+            <div class="col-xs-4 text-center">
+                <span aria-hidden="true">
+                    <img src="img/social_icon/behance-dark.svg" class="img-responsive my-icon">
+                </span>
+                <p><a href="https://www.behance.net/ashfaqamin" target="_blank">Behance</a></p>
+            </div>
+        </div>
+    </div>
+</section> 
+
+
+<!-- jQuery -->
+
+    <!-- jQuery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Magnific Popup core JS file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('.image-popup').magnificPopup({
+                type:'image', 
+                delegate: 'a',
+                gallery:{enabled:true}
+            });
+        });
+    </script>
+    
+
+    <!--<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>-->
+    <script type="text/javascript">
+        //var amountScrolled = 300;
+        $(document).ready(function(){
+            $(window).scroll(function() {
+                if ( $(window).scrollTop() > 100) {
+                    $('.back-to-top').fadeIn();
+                } else {
+                    $('.back-to-top').fadeOut();
+                }
+            });
+
+        });
+    </script>
+
+    <!-- Theme JavaScript -->
+    <script async src="js/main.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+        $(".nav>li:first>a").addClass("current");
+
+    </script>
+
+    <script type="text/javascript">
+    (function(){
+        var btn = document.querySelector('a.cta-scroll[href="#portfolio"]');
+        var target = document.getElementById('portfolio');
+        if(!btn || !target) return;
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        // easeInOutCubic — same curve as the portfolio card hover (cubic-bezier .645,.045,.355,1)
+        function easeInOutCubic(t){ return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2; }
+        btn.addEventListener('click', function(e){
+            e.preventDefault();
+            var startY = window.pageYOffset;
+            var endY = target.getBoundingClientRect().top + startY - 50;
+            if(reduce){ window.scrollTo(0, endY); return; }
+            var dist = endY - startY, dur = 900, t0 = null;
+            function step(ts){
+                if(t0 === null) t0 = ts;
+                var pr = Math.min((ts - t0)/dur, 1);
+                window.scrollTo(0, startY + dist*easeInOutCubic(pr));
+                if(pr < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        });
+    })();
+    </script>
+
 </body>
+
 </html>
