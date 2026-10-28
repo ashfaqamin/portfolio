@@ -623,6 +623,9 @@ hr.left-aligned { margin-left: 0;}
 }
 #contact{
   padding-bottom: 3em;
+  padding-top: 3em;
+  margin-top: 0;
+  border-top: 1px solid #e0e0e0;
 }
 #contact .section-heading{
   margin-bottom: 2em;
