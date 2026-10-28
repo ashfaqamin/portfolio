@@ -763,3 +763,16 @@ a.back-to-top span{
 /* smooth portfolio card hover — easeInOutCubic (shared with the Check Out My Works scroll) */
 .portfolio-box { transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.35s cubic-bezier(0.645, 0.045, 0.355, 1); }
 @media (prefers-reduced-motion: reduce){ .portfolio-box { transition: none; } }
+
+
+/* protected case-study password modal */
+.cs-modal-overlay{ position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(28,27,25,0.78); z-index:2000; display:none; align-items:center; justify-content:center; padding:20px; }
+.cs-modal-box{ background:#fff; max-width:420px; width:100%; border-radius:6px; padding:36px 32px 26px; text-align:center; position:relative; box-shadow:0 20px 50px rgba(0,0,0,.35); }
+.cs-modal-close{ position:absolute; top:8px; right:14px; border:0; background:none; font-size:26px; line-height:1; color:#aaa; cursor:pointer; }
+.cs-modal-close:hover{ color:#1c1b19; }
+.cs-modal-lock{ font-size:30px; color:#f44336; margin:0 0 .3em; }
+.cs-modal-box h4{ margin:.2em 0 .5em; }
+.cs-modal-sub{ color:#6f6f6f; margin-bottom:1.2em; }
+.cs-modal-box input[type=password]{ display:block; width:100%; max-width:260px; margin:0 auto .9em; text-align:left; padding:10px 12px; border:1px solid #ccc; border-radius:4px; font-size:15px; }
+.cs-modal-err{ color:#f44336; margin-top:1em; display:none; }
+.cs-modal-req{ margin-top:1.4em; font-size:13px; color:#999; }

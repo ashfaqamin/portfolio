@@ -1,0 +1,11 @@
+# Jekyll local build output
+_site/
+.jekyll-cache/
+.sass-cache/
+# misc
+.DS_Store
+__pycache__/
+*.pyc
+
+# local preview (not for GitHub)
+_preview/

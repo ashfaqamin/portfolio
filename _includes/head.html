@@ -1,0 +1,45 @@
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="UX Portfolio of Ashfaq Amin. Design projects, Research and Publications">
+    <meta name="author" content="Ashfaq Amin">
+
+    <meta property="og:site_name" content="Ashfaq Amin"/>
+    <meta property="og:title" content="Ashfaq's Portfolio" />
+    <meta property="og:description" content="UX Case Studies, Interaction Design, Visual Design, UX Research, User Studies" />
+    <meta property="og:image" content="brand.jpg" />
+    <meta property="og:url" content="http://ashfaqamin.com/">
+    <meta property="og:type" content="UX Portfolio, HCI, Interaction Designer, UX Designer, Service Designer, Work Experience, Research, Publications, Multidisciplinary"/>
+
+    <title>{{ page.title | default: "Ashfaq Amin | UX Designer, Researcher" }}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Plugin CSS: Magnific pop-up -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" />
+
+    <!-- Theme CSS -->
+    <link href="css/creative.css" rel="stylesheet">
+   
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="image_src" href="brand.jpg" />
+
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+    {% if page.extra_css %}{% for c in page.extra_css %}<link href="{{ c }}" rel="stylesheet">
+    {% endfor %}{% endif %}
+    <!-- jQuery (loaded early so page scripts can use it) -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
