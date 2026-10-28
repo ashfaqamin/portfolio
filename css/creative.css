@@ -779,3 +779,7 @@ a.back-to-top span{
 .cs-modal-box input[type=password]{ display:block; width:100%; max-width:260px; margin:0 auto .9em; text-align:left; padding:10px 12px; border:1px solid #ccc; border-radius:4px; font-size:15px; }
 .cs-modal-err{ color:#f44336; margin-top:1em; display:none; }
 .cs-modal-req{ margin-top:1.4em; font-size:13px; color:#999; }
+
+/* uniform portfolio card text blocks */
+.portfolio-box .caption{ min-height: 2.4em; }
+.portfolio-box p{ min-height: 3em; }
