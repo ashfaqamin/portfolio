@@ -1,39 +1,25 @@
-{% raw %}
-<section id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center section-heading">
-                <h2 class="">Get In Touch</h2>
-                
-            </div>
-            <div class="col-xs-4 text-center">
-                <span aria-hidden="true">
-                    <img src="img/social_icon/envelope.svg" class="img-responsive my-icon">
-                </span>
-                <p><a href="mailto:ashfaq.m.amin@gmail.com">ashfaq.m.amin@gmail.com</a></p>
-            </div>
-            <div class="col-xs-4 text-center">
-                <span aria-hidden="true">
-                    <img src="img/social_icon/linkedin-black.svg" class="img-responsive my-icon">
-                </span>
-                <p><a href="https://linkedin.com/in/ashfaqamin" target="_blank">LinkedIn</a></p>
-            </div>
-            <div class="col-xs-4 text-center">
-                <span aria-hidden="true">
-                    <img src="img/social_icon/behance-dark.svg" class="img-responsive my-icon">
-                </span>
-                <p><a href="https://www.behance.net/ashfaqamin" target="_blank">Behance</a></p>
-            </div>
+<section id="contact" class="section section--ink">
+    <style>
+    #contact .contact-email{display:inline-block;font-family:var(--font-sans);font-size:clamp(22px,2.6vw,30px);font-weight:600;letter-spacing:-.01em;color:var(--text-inverse);text-decoration:none;border-bottom:2px solid var(--action);padding-bottom:3px;transition:border-color .2s ease;}
+    #contact .contact-email:hover{border-color:var(--text-inverse);}
+    #contact .contact-links{display:flex;gap:26px;margin-top:28px;}
+    #contact .contact-links a{font-family:var(--font-sans);font-size:15px;font-weight:500;color:var(--text-inverse);opacity:.8;text-decoration:none;transition:opacity .18s ease;}
+    #contact .contact-links a:hover{opacity:1;}
+    #contact .contact-foot{font-family:var(--font-sans);margin-top:56px;font-size:13px;color:var(--text-inverse);opacity:.45;}
+    </style>
+    <div class="ds-container">
+        <p class="section__eyebrow">Contact</p>
+        <h2 class="section__title">Let's get in touch.</h2>
+        <a class="contact-email" href="mailto:ashfaq.m.amin@gmail.com">ashfaq.m.amin@gmail.com</a>
+        <div class="contact-links">
+            <a href="https://linkedin.com/in/ashfaqamin" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+            <a href="https://www.behance.net/ashfaqamin" target="_blank" rel="noopener">Behance &#8599;</a>
         </div>
+        <p class="contact-foot">&copy; 2026 Ashfaq Amin &middot; Toronto</p>
     </div>
-</section> 
+</section>
 
-
-<!-- jQuery -->
-
-    <!-- jQuery -->
-
-
+{% raw %}
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
@@ -45,17 +31,14 @@
     <script>
         $(document).ready(function() {
             $('.image-popup').magnificPopup({
-                type:'image', 
+                type:'image',
                 delegate: 'a',
                 gallery:{enabled:true}
             });
         });
     </script>
-    
 
-    <!--<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>-->
     <script type="text/javascript">
-        //var amountScrolled = 300;
         $(document).ready(function(){
             $(window).scroll(function() {
                 if ( $(window).scrollTop() > 100) {
@@ -64,7 +47,6 @@
                     $('.back-to-top').fadeOut();
                 }
             });
-
         });
     </script>
 

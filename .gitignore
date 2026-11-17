@@ -1,11 +1,22 @@
-# Jekyll local build output
+# Jekyll build output (auto-generated — never edit by hand)
 _site/
 .jekyll-cache/
 .sass-cache/
+
+# Local dev tooling — NOT pushed; GitHub Pages uses its own build
+Gemfile
+Gemfile.lock
+.ruby-version
+.bundle/
+vendor/bundle/
+
 # misc
 .DS_Store
 __pycache__/
 *.pyc
 
-# local preview (not for GitHub)
-_preview/
+# Local backups & scratch (not for the live site)
+*.bak
+*.bak2
+/Claude outputs/
+/_stash/

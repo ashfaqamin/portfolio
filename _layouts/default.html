@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include head.html %}
-<body id="page-top">
+<body id="page-top"{% if page.ds %} class="ds-base"{% endif %}>
 {% include nav.html %}
 {{ content }}
 {% include footer.html %}

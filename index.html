@@ -1,187 +1,253 @@
 ---
 layout: default
+ds: true
 ---
 {% raw %}
-<header>
-        <div class="header-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 idcard">
-                        <img class="img-circle img-responsive pro-pic" src="img/pp.jpg" alt="Ashfaq's Photo">
-                        <h1>Ashfaq Amin</h1>
-                        <!--<hr class="light">-->
-                        <p>Hello! I'm a Toronto-based Senior UX Designer with 10+ years of industry experience, mostly in enterprise SaaS. I partner closely with cross-functional agile teams to drive product vision and roadmap, with a focus on AI and agentic UX, user-centered design, user research, and accessibility. Much of my process is validation-driven; I like to run usability sessions and pressure-test ideas early with rapid prototypes, whether vibecoded or built in Figma.</p>
-                        
-                        <a href="#portfolio" class="btn btn-primary cta-scroll">
-                            Check Out My Works<span class="glyphicon glyphicon-menu-down bounce" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                    <!--<div class="col-sm-6">
-                        <img src="img/header-img.svg" class="img-fluid">
-                    </div>-->
-                    
-                </div>
-            </div>
+<header class="hero" id="top">
+    <div class="hero__in">
+        <p>Product and UX Lead &middot; Toronto</p>
+        <h1 class="display-xl">I design complex software<br>that feels <span class="hero__rot"><span class="hero__rot-w" id="heroRot">intuitive</span></span></h1>
+    </div>
+    <a class="hero__cue" href="#portfolio"><span>View work</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+</header>
+<script>
+(function(){
+    var hero=document.querySelector('.hero'), navEl=document.querySelector('.site-nav');
+    function fitHero(){ if(hero){ var nh=navEl?navEl.getBoundingClientRect().height:0; hero.style.minHeight=Math.max(420,window.innerHeight-nh)+'px'; } }
+    fitHero(); window.addEventListener('resize',fitHero);
+    var words=["intuitive","delightful","accessible","simple"];
+    var el=document.getElementById('heroRot');
+    if(!el) return;
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) return;
+    var i=0, HOLD=1500;
+    el.classList.add('in');
+    function cycle(){
+        el.classList.remove('in'); void el.offsetWidth; el.classList.add('out');
+        el.addEventListener('animationend', function onOut(){
+            el.removeEventListener('animationend', onOut);
+            i=(i+1)%words.length; el.textContent=words[i];
+            el.classList.remove('out'); void el.offsetWidth; el.classList.add('in');
+            setTimeout(cycle, HOLD);
+        });
+    }
+    setTimeout(cycle, HOLD);
+})();
+</script>
+
+    <style>
+*,*::before,*::after{box-sizing:border-box;}
+.site-nav__in,.ds-container{max-width:1728px;padding-inline:clamp(24px,4vw,72px);}
+html{scroll-behavior:smooth;}
+@media (min-width:992px){html{scroll-snap-type:y proximity;}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+/* ---- hero ---- */
+.hero{position:relative;min-height:calc(100vh - 64px);min-height:calc(100svh - 64px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:var(--background);scroll-snap-align:start;padding:32px 0 104px;}
+.hero__in{max-width:1728px;width:100%;margin-inline:auto;padding-inline:clamp(24px,4vw,72px);}
+.hero__eyebrow{font-size:14px;font-weight:600;color:var(--text-secondary);margin:0 0 20px;}
+.hero__statement{font-family:var(--font-sans);font-size:clamp(30px,5vw,56px);line-height:1.1;font-weight:700;letter-spacing:-.025em;color:var(--text);margin:0;}
+.hero__rot{position:relative;display:inline-block;color:var(--action);white-space:nowrap;}
+.hero__rot-w{display:inline-block;will-change:transform,opacity;}
+@keyframes heroWIn{from{opacity:0;transform:translateY(.46em);}to{opacity:1;transform:translateY(0);}}
+@keyframes heroWOut{from{opacity:1;transform:translateY(0);}to{opacity:0;transform:translateY(-.4em);}}
+.hero__rot-w.in{animation:heroWIn .46s cubic-bezier(.22,1,.36,1) both;}
+.hero__rot-w.out{animation:heroWOut .34s cubic-bezier(.64,0,.78,0) both;}
+.hero__cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:inline-flex;flex-direction:column;align-items:center;gap:7px;font-size:14px;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color .18s ease;}
+.hero__cue:hover{color:var(--text);}
+.hero__cue svg{width:17px;height:17px;animation:heroBob 1.8s ease-in-out infinite;}
+@keyframes heroBob{0%,100%{transform:translateY(0);}50%{transform:translateY(4px);}}
+.hero__cue:focus-visible{outline:2px solid var(--focus-ring);outline-offset:4px;border-radius:4px;}
+@media (prefers-reduced-motion:reduce){.hero__rot-w{animation:none!important;opacity:1!important;transform:none!important;}.hero__cue svg{animation:none;}}
+
+/* ---- portfolio (no background band) ---- */
+.pf{position:relative;background:var(--background);padding:0;}
+.pf-slide{min-height:100vh;min-height:100svh;display:flex;align-items:center;scroll-snap-align:start;padding:6.5rem 0;}
+.pf-inner{width:100%;max-width:1728px;margin:0 auto;padding-inline:clamp(24px,4vw,72px);display:grid;grid-template-columns:minmax(300px,31%) 1fr;gap:clamp(32px,3.5vw,72px);align-items:center;}
+.pf-col{opacity:0;transform:translateY(16px);transition:opacity .8s cubic-bezier(.645,.045,.355,1),transform .8s cubic-bezier(.645,.045,.355,1);}
+.pf-slide.is-in .pf-col{opacity:1;transform:none;}
+.pf-col--screens{transition-delay:.08s;}
+.pf-index{font-size:13px;letter-spacing:.02em;color:var(--text-tertiary);margin:0 0 14px;}
+.pf-eyebrow{font-size:14px;font-weight:600;color:var(--text-secondary);margin:0 0 7px;}
+.pf-title{font-size:clamp(28px,3.3vw,40px);line-height:1.08;letter-spacing:-.02em;color:var(--text);margin:0 0 18px;font-weight:700;}
+.pf-desc{font-size:16px;line-height:1.625;color:var(--text-secondary);margin:0 0 28px;max-width:46ch;}
+.pf-meta{margin:0 0 30px;border-top:1px solid var(--border);}
+.pf-meta-row{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--border);}
+.pf-meta-row:last-child{border-bottom:none;}
+.pf-meta dt{flex:0 0 40%;font-size:14px;font-weight:400;color:var(--text-secondary);margin:0;}
+.pf-meta dd{flex:1;margin:0;font-size:14px;line-height:1.5;color:var(--text);}
+.pf-cta{gap:8px;}
+.pf-cta svg{width:16px;height:16px;}
+.pf-screens{position:relative;width:100%;aspect-ratio:16/10;border-radius:12px;background:var(--background-subtle);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.pf-screens span{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-tertiary);}
+.pf-screens img,.pf-screens video{width:100%;height:100%;object-fit:cover;display:block;}
+.pf-dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:13px;z-index:40;opacity:0;pointer-events:none;transition:opacity .35s ease;}
+.pf-dots.is-visible{opacity:1;pointer-events:auto;}
+.pf-dot{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:#cfcdc4;cursor:pointer;transition:background .3s,transform .3s;}
+.pf-dot.is-active{background:var(--text);transform:scale(1.3);}
+.pf-dot:focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px;}
+@media (max-width:991px){
+.pf-inner{grid-template-columns:1fr;gap:28px;}
+.pf-slide{min-height:auto;padding:4rem 0;scroll-snap-align:none;}
+.pf-dots{display:none;}
+}
+@media (prefers-reduced-motion:reduce){.pf-col{opacity:1;transform:none;transition:none;}}
+</style>
+
+<section id="portfolio" class="pf">
+
+<article class="pf-slide" id="pf-1">
+<div class="pf-inner">
+<div class="pf-col pf-col--info">
+<p class="pf-index">01 / 05</p>
+<p class="pf-eyebrow">HubSpot</p>
+<h3 class="pf-title">Agentic UX vision for Customer Success</h3>
+<p class="pf-desc">A forward-looking vision for how agentic AI reshapes the Customer Success workflow &mdash; proactive insight, automated call prep, and an assistant that acts across a rep's book of business, prototyped end to end.</p>
+<dl class="pf-meta">
+<div class="pf-meta-row"><dt>Year</dt><dd>2025&ndash;2026</dd></div>
+<div class="pf-meta-row"><dt>Scope</dt><dd>Research, agentic system design, vibecoded prototypes, end-to-end experience, user journey</dd></div>
+<div class="pf-meta-row"><dt>Primary team</dt><dd>Product triad (PM, EL, TL), Group leads (GPM, UX Director)</dd></div>
+<div class="pf-meta-row"><dt>Cross-functional team</dt><dd>Business analytics, Customer Success and Solutions Org (CSSO) leads, Enablement, Legal, Design system</dd></div>
+</dl>
+<a href="agentic-ux.html" class="btn btn--primary pf-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Enter password to view</a>
+</div>
+<div class="pf-col pf-col--screens"><div class="pf-screens"><video src="img/proactive_ai_vision/thumb.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Agentic UX vision for Customer Success — preview"></video></div></div>
+</div>
+</article>
+
+<article class="pf-slide" id="pf-2">
+    <div class="pf-inner">
+        <div class="pf-col pf-col--info">
+            <p class="pf-index">02 / 05</p>
+            <p class="pf-eyebrow">HubSpot</p>
+            <h3 class="pf-title">Unified usage score</h3>
+            <p class="pf-desc">An AI-assisted customer-health scoring system that lets Customer Success reps prioritize their book of business, diagnose customer issues, and influence usage in minutes, not hours.</p>
+            <dl class="pf-meta">
+            <div class="pf-meta-row"><dt>Year</dt><dd>2024</dd></div>
+            <div class="pf-meta-row"><dt>Scope</dt><dd>Requirements, research, concept, prototyping, 1:1 testing, data mapping, dev handoff</dd></div>
+            <div class="pf-meta-row"><dt>Primary team</dt><dd>Product triad (PM, EL, TL)</dd></div>
+            <div class="pf-meta-row"><dt>Cross-functional team</dt><dd>Business Analytics, Engineering, Enablement</dd></div>
+            </dl>
+            <a href="https://docs.google.com/presentation/d/1lOOIjNZaZgRuZ99Bm_UbjqVKrx_Prm-ZIRT7g72o3gY/edit?usp=sharing" class="btn btn--primary pf-cta" target="_blank" rel="noopener">View case study<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a>
         </div>
-    </header>
+        <div class="pf-col pf-col--screens"><div class="pf-screens"><img src="img/uus/thumb.gif" alt="Unified usage score — preview"></div></div>
+    </div>
+</article>
 
-    <section class="" id="portfolio">
-        <div class="container">
-            <div class="row" id="uxp">
-                <div class="col-lg-12 text-center section-heading">
-                    <h2>Portfolio</h2>
-                    
-                </div>
-            </div>
+<article class="pf-slide" id="pf-3">
+<div class="pf-inner">
+<div class="pf-col pf-col--info">
+<p class="pf-index">03 / 05</p>
+<p class="pf-eyebrow">Ceridian Dayforce</p>
+<h3 class="pf-title">Candidate management</h3>
+<p class="pf-desc">A design-led and WCAG 2.0 accessible overhaul of Dayforce Recruiting &mdash; centralized candidates, AI matching, and automated scheduling that won back at-risk clients.</p>
+<dl class="pf-meta">
+<div class="pf-meta-row"><dt>Year</dt><dd>2020&ndash;2021</dd></div>
+<div class="pf-meta-row"><dt>Scope</dt><dd>Research, concept, prototyping, 1:1 testing, synthesis, dev handoff</dd></div>
+<div class="pf-meta-row"><dt>Primary team</dt><dd>1 PO, 1 PM, Engineering, 1 QA</dd></div>
+<div class="pf-meta-row"><dt>Cross-functional team</dt><dd>Platform (design system), Compensation, CEO + VP</dd></div>
+</dl>
+<a href="https://docs.google.com/presentation/d/143zVb4ReArEOg6jQlD9sqEiFUapf1qgaGA18S_JdYVQ/edit?usp=sharing" class="btn btn--primary pf-cta" target="_blank" rel="noopener">View case study<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a>
+</div>
+<div class="pf-col pf-col--screens"><div class="pf-screens"><img src="img/candidate_management/thumb.png" alt="Candidate management — preview"></div></div>
+</div>
+</article>
+
+<article class="pf-slide" id="pf-4">
+<div class="pf-inner">
+<div class="pf-col pf-col--info">
+<p class="pf-index">04 / 05</p>
+<p class="pf-eyebrow">Tantalus Systems</p>
+<h3 class="pf-title">Admin dashboard</h3>
+<p class="pf-desc">An admin dashboard for a smart-grid platform. Admins spot issues through analytics, run diagnostics, raise tickets, and search devices across the network.</p>
+<dl class="pf-meta">
+<div class="pf-meta-row"><dt>Year</dt><dd>2017</dd></div>
+<div class="pf-meta-row"><dt>Scope</dt><dd>Field testing, interviews, IA, wireframe, prototype, visual design library</dd></div>
+<div class="pf-meta-row"><dt>Role</dt><dd>Solo designer</dd></div>
+<div class="pf-meta-row"><dt>Cross-functional team</dt><dd>All engineering teams</dd></div>
+</dl>
+<a href="tcc.html" class="btn btn--primary pf-cta">View case study</a>
+</div>
+<div class="pf-col pf-col--screens"><div class="pf-screens"><img src="img/tcc/thumb.jpg" alt="Admin dashboard — preview"></div></div>
+</div>
+</article>
+
+<article class="pf-slide" id="pf-5">
+<div class="pf-inner">
+<div class="pf-col pf-col--info">
+<p class="pf-index">05 / 05</p>
+<p class="pf-eyebrow">Grameenphone</p>
+<h3 class="pf-title">First-time experience</h3>
+<p class="pf-desc">Designed multi-channel onboarding experiences for new Grameenphone customers, improving self-completion rates by over 90%.</p>
+<dl class="pf-meta">
+<div class="pf-meta-row"><dt>Year</dt><dd>2014</dd></div>
+<div class="pf-meta-row"><dt>Scope</dt><dd>Research, interaction design, journey mapping, personas, visual design (web, mobile, print)</dd></div>
+</dl>
+<a href="fte.html" class="btn btn--primary pf-cta">View case study</a>
+</div>
+<div class="pf-col pf-col--screens"><div class="pf-screens"><img src="img/FTE_gp/thumb.jpg" alt="First-time experience — preview"></div></div>
+</div>
+</article>
+
+<nav class="pf-dots" aria-label="Project navigation"></nav>
+
+<script>
+(function(){
+  var sec=document.getElementById('portfolio'); if(!sec) return;
+  var slides=[].slice.call(sec.querySelectorAll('.pf-slide'));
+  var dotsWrap=sec.querySelector('.pf-dots');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dots=slides.map(function(s,i){
+    var b=document.createElement('button');
+    b.className='pf-dot'; b.type='button';
+    b.setAttribute('aria-label','Go to project '+(i+1));
+    b.addEventListener('click',function(){ s.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); });
+    dotsWrap.appendChild(b); return b;
+  });
+  function setActive(i){ dots.forEach(function(d,j){ d.classList.toggle('is-active',j===i); }); }
+  setActive(0);
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); if(e.intersectionRatio>=0.5) setActive(slides.indexOf(e.target)); } });
+  },{threshold:[0.25,0.5,0.75]});
+  slides.forEach(function(s){ io.observe(s); });
+  var secIo=new IntersectionObserver(function(es){ es.forEach(function(e){ dotsWrap.classList.toggle('is-visible',e.isIntersecting); }); },{threshold:0.08});
+  secIo.observe(sec);
+})();
+</script>
+</section><!-- portfolio -->
+
+
+    <section id="about" class="about-ds">
+    <style>
+    #about.about-ds{--bg:#fff;--sub:#f7f7f7;--text:#222;--t2:#717171;--t3:#b0b0b0;--border:#ddd;--action-text:#7c3aed;
+      --font:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      font-family:var(--font);background:var(--sub);color:var(--text);padding:clamp(64px,6vw,96px) 0;}
+    #about.about-ds *{box-sizing:border-box;}
+    #about.about-ds .about-in{max-width:1728px;margin-inline:auto;padding-inline:clamp(24px,4vw,72px);}
+    #about.about-ds .about-grid{display:grid;grid-template-columns:36% 1fr;gap:clamp(32px,4vw,56px);align-items:center;}
+    #about.about-ds .about-photo{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:12px;display:block;background:var(--sub);}
+    #about.about-ds .about-eyebrow{font-size:14px;font-weight:600;color:var(--t2);margin:0 0 16px;}
+    #about.about-ds .about-statement{font-size:clamp(26px,2.4vw,32px);line-height:1.14;font-weight:700;letter-spacing:-.02em;color:var(--text);margin:0 0 20px;max-width:22ch;}
+    #about.about-ds .about-lead{font-size:clamp(17px,1.3vw,19px);line-height:1.5;font-weight:400;color:var(--text);margin:0 0 24px;max-width:46ch;}
+    #about.about-ds .about-body{font-size:16px;line-height:1.62;color:var(--t2);margin:0 0 14px;max-width:52ch;}
+    #about.about-ds .about-body:last-child{margin-bottom:0;}
+    #about.about-ds a{color:var(--action-text);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;transition:color .18s ease;}
+    #about.about-ds a:hover{color:#5f2fc0;}
+    @media (max-width:860px){#about.about-ds .about-grid{grid-template-columns:1fr;gap:28px;}#about.about-ds .about-photo{max-width:320px;}}
+    </style>
+    <div class="about-in">
+      <div class="about-grid">
+        <img class="about-photo" src="img/pp-2.jpg" alt="Ashfaq Amin">
+        <div>
+          <p class="about-eyebrow">About</p>
+          <h2 class="about-statement">A multidisciplinary designer across design, research, and development.</h2>
+          <p class="about-lead">10+ years in enterprise SaaS, partnering with cross-functional agile teams on product vision and roadmap &mdash; focused on AI and agentic UX, user research, and accessibility.</p>
+          <p class="about-body">I hold an MSc in HCI from <a href="http://www.sfu.ca/siat.html" target="_blank">SIAT, SFU</a>, and was most recently a Senior Product Designer at HubSpot.</p>
+          <p class="about-body"><a href="https://www.flickr.com/photos/ayon_solitaire/albums/72157675432345410" target="_blank">Art is the love of my life</a> &mdash; I love painting and sketching in traditional media. Other than that, I also love cooking, playing ukulele, photography, and travelling.</p>
+          <p class="about-body">Cat dad. Also dad to a newborn daughter.</p>
         </div>
-        <!-- <div class="container-fluid">
-            <div class="row no-gutter popup-gallery"> -->
-        <div class="container-fluid bg-lightdark" style="padding: 3em 0 3em 0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-12 pbox" >
-                        <h3>Enterprise SaaS<br>Applications</h3>
-                        <hr class="black">
-                        <p>How I designed responsive SaaS products from ideation to interactive mockups. The key challenge was to design about 70+ pages for all screens, and collaborate with teams overseas within a tight schedule.</p>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 pbox">
-                        <a href="uus.html" class="portfolio-box">
-                            <img src="img/protected/uus.svg" class="img-responsive" alt="Unified Usage Score — protected case study">
-                            <h4 class="caption">Unified Usage Score</h4>
-                            <p>An AI-powered customer-health score that guides Customer Success rep workflows.</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a href="candidate-management.html" class="portfolio-box">
-                            <img src="img/protected/cand.svg" class="img-responsive" alt="Candidate Management — protected case study">
-                            <h4 class="caption">Candidate Management</h4>
-                            <p>A centralized, AI-assisted workspace for recruiters to manage candidates end to end.</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-lg-offset-4 col-sm-6 pbox">
-                        <a href="tcc.html" class="portfolio-box">
-                            <img src="img/tcc/thumb.jpg" class="img-responsive" alt="TUNet Control Center Admin Dashboard UX Project">
-                            <h4 class="caption">Admin Dashboard for Smart Grid</h4>
-                            <p>An admin dashboard for monitoring, diagnosing, and managing smart-grid devices.</p>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid " style="padding: 3em 0 3em 0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-12 pbox" >
-                        <h3>Service Design<br> for the masses</h3>
-                        <hr class="black">
-                        <p>
-                            How I used <strong>UX Research</strong> to design services and multi-channel experiences for a Telecom operator's <strong>50 million</strong> customer base. 
-                        </p>
-                    </div>
-                    
-                    <div class="col-lg-4 col-sm-6 pbox">
-                        <a href="fte.html" class="portfolio-box">
-                            <img src="img/FTE_gp/thumb.jpg" class="img-responsive" alt="First Time Experience UX Project">
-                            <h4 class="caption">First-Time User's Experience</h4>
-                            <p>Shaping an intuitive first-time experience that turns new users into active and engaged ones.</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a href="gpstore.html" class="portfolio-box">
-                            <img src="img/gpstore/thumb.jpg" class="img-responsive" alt="gp store">
-                            <h4 class="caption">Design of a Content Store</h4>
-                            <p>A redesigned digital content store for a telecom's 50M+ subscribers.</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-fluid bg-lightdark" style="padding: 3em 0 3em 0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-12 pbox" >
-                        <h3>Quantitative, Qualitative<br> HCI Research</h3>
-                        <hr class="black">
-                        <p>A couple of my academic research projects in which I was the primary investigator, and followed different HCI research methods.</p>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 pbox">
-                        <a href="research-study-2_alt.html" class="portfolio-box">
-                            <img src="img/research/cover-2.jpg" class="img-responsive" alt="">
-                            <h4 class="caption">Mobile VR for Pain Management</h4>
-                            <p>Testing low-cost mobile VR as a pain-distraction tool for chronic pain.</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 pbox">
-                        <a href="research-study-1.html" class="portfolio-box">
-                            <img src="img/research/cover-1.jpg" class="img-responsive" alt="">
-                            <h4 class="caption">Immersion in Mobile VR</h4>
-                            <p>Comparing immersion in budget mobile VR against a traditional headset.</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid" style="padding: 3em 0 3em 0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-12 pbox" >
-                        <h3 >Design Challenge, Mobile Apps, and Experimental Projects</h3>
-                        <hr class="black">
-                        <p>A few of my favorite small projects. More projects are on my <a href="https://www.behance.net/ashfaqamin" target="_blank">Behance</a> portfolio.</p>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 pbox">
-                        <a href="your-hotel.html" class="portfolio-box">
-                            <img src="img/urhotel/thumb.jpg" class="img-responsive" alt="your hotel">
-                            <h4 class="caption">A 4-hr Design Challenge</h4>
-                            <p>A 4-hour challenge to let hotel guests personalize their room experience.</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 pbox">
-                        <a href="experimental-works.html" class="portfolio-box">
-                            <img src="img/experimental/thumb.jpg" class="img-responsive" alt="Experimental Design Works">
-                            <h4 class="caption">Experimental Works</h4>
-                            <p>A collection of small, self-initiated design and interaction experiments.</p>
-                        </a>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </section><!-- portfolio -->
-
-
-    <section class="bg-lightdark" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center section-heading">
-                    <h2>More About Me</h2>
-                    
-                </div>
-                
-                <div class="col-md-4 col-sm-12">
-                    <hr class="black">
-                    <p>
-                        I got a multidisciplinary background in design, research, and development. I have an MSc in HCI from <a href="http://www.sfu.ca/siat.html" target="_blank">SIAT, SFU</a>. Most recently, I was a Senior Product Designer at <a href="https://www.hubspot.com/" target="_blank">HubSpot</a>.
-                    </p>
-
-                </div>
-
-
-                <div class="col-md-4 col-sm-12">
-                    <hr class="black">
-                    <p>
-                        Art is the love of my life. I am trained in traditional painting and sketching media. If you wish, please check out some of my <a href="https://www.flickr.com/photos/ayon_solitaire/albums/72157675432345410" target="_blank">artworks</a>.
-                    </p>
-                    <p>
-                        I also love photography, playing ukulele, outdoor games, cooking, and will take every opportunity to travel. So, if you got a job that requires traveling, I would be interested.
-                    </p>
-                </div>
-
-            </div>
-        </div>
+      </div>
+    </div>
     </section> <!-- about -->
 
     <!--
@@ -283,6 +349,16 @@ layout: default
     })();
     </script>
 
+<style>
+.cs-modal-overlay{position:fixed;inset:0;background:rgba(34,34,34,.6);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;}
+.cs-modal-box{background:var(--surface);max-width:420px;width:100%;border-radius:12px;padding:36px 32px 26px;text-align:center;position:relative;box-shadow:var(--shadow-md);font-family:var(--font-sans);}
+.cs-modal-close{position:absolute;top:10px;right:16px;border:0;background:none;font-size:26px;line-height:1;color:var(--text-tertiary);cursor:pointer;}
+.cs-modal-close:hover{color:var(--text);}
+.cs-modal-box h4{font-size:18px;font-weight:600;color:var(--text);margin:.2em 0 1.1em;}
+.cs-modal-box input[type=password]{display:block;width:100%;max-width:280px;margin:0 auto 14px;text-align:left;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:15px;font-family:var(--font-sans);}
+.cs-modal-box input[type=password]:focus{outline:2px solid var(--focus-ring);outline-offset:1px;border-color:var(--action);}
+.cs-modal-err{color:#c0392b;margin-top:1em;display:none;font-size:14px;}
+</style>
 <!-- protected case-study password modal -->
 <div id="cs-modal" class="cs-modal-overlay">
     <div class="cs-modal-box">
@@ -290,7 +366,7 @@ layout: default
         <h4>Enter password to view the case study</h4>
         <form id="cs-modal-form">
             <input type="password" id="cs-modal-pw" placeholder="Password" autocomplete="off" autocapitalize="off" spellcheck="false">
-            <button type="submit" class="btn btn-primary">Unlock</button>
+            <button type="submit" class="btn btn--primary">Unlock</button>
             <p class="cs-modal-err" id="cs-modal-msg">Incorrect password. Please try again.</p>
         </form>
     </div>
@@ -303,7 +379,7 @@ layout: default
         input=document.getElementById('cs-modal-pw'),
         msg=document.getElementById('cs-modal-msg'),
         closeBtn=document.getElementById('cs-modal-close');
-    var names={"uus.html":"Unified Usage Score","candidate-management.html":"Candidate Management"};
+    var names={"agentic-ux.html":"Agentic UX vision for Customer Success","uus.html":"Unified Usage Score","candidate-management.html":"Candidate Management"};
     var target=null;
     var b=function(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);});};
     function verify(pw){
@@ -316,8 +392,11 @@ layout: default
     function openModal(href){ target=href; msg.style.display="none"; input.value=""; overlay.style.display="flex"; setTimeout(function(){input.focus();},50); }
     function closeModal(){ overlay.style.display="none"; }
     function go(pw){ try{sessionStorage.setItem("cs_pw",pw);}catch(e){} window.location=target; }
-    var links=document.querySelectorAll('a[href="uus.html"], a[href="candidate-management.html"]');
-    Array.prototype.forEach.call(links,function(a){ a.addEventListener("click",function(e){ e.preventDefault(); openModal(a.getAttribute("href")); }); });
+    var links=document.querySelectorAll('a[href="agentic-ux.html"], a[href="uus.html"], a[href="candidate-management.html"]');
+    function setUnlocked(){ Array.prototype.forEach.call(links,function(a){ a.textContent="View case study"; }); }
+    function bindModal(){ Array.prototype.forEach.call(links,function(a){ a.addEventListener("click",function(e){ e.preventDefault(); openModal(a.getAttribute("href")); }); }); }
+    var stored=null; try{ stored=sessionStorage.getItem("cs_pw"); }catch(e){}
+    if(stored){ verify(stored).then(setUnlocked).catch(bindModal); } else { bindModal(); }
     form.addEventListener("submit",function(e){
         e.preventDefault(); var pw=input.value;
         if(!window.crypto||!crypto.subtle){ go(pw); return; }

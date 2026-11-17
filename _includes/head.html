@@ -15,14 +15,20 @@
 
     <title>{{ page.title | default: "Ashfaq Amin | UX Designer, Researcher" }}</title>
 
-    <!-- Bootstrap Core CSS -->
+    <!-- Figtree — portfolio design system font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Portfolio design system (global: shared nav + footer, and migrated pages) -->
+    <link href="css/tokens.css?v={{ site.time | date: '%s' }}" rel="stylesheet">
+    <link href="css/components.css?v={{ site.time | date: '%s' }}" rel="stylesheet">
+    {% unless page.ds %}
+    <!-- Legacy content styles — loaded AFTER the design system so they win for legacy page content -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Plugin CSS: Magnific pop-up -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" />
-
-    <!-- Theme CSS -->
     <link href="css/creative.css" rel="stylesheet">
+    {% endunless %}
    
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="image_src" href="brand.jpg" />

@@ -1,27 +1,31 @@
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand page-scroll" href="index.html"><img src="img/logo.svg" alt="Ashfaq Amin" class="brand-logo"></a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a class="page-scroll" href="index.html#portfolio">Portfolio</a>
-                </li>
-                 <li>
-                    <a href="research.html">Academic Research</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+<nav class="site-nav" id="siteNav">
+    <div class="site-nav__in">
+        <a class="site-nav__brand" href="{% if page.url == '/' %}#top{% else %}index.html{% endif %}">Ashfaq Amin</a>
+        <ul class="site-nav__links">
+            <li><a data-spy="portfolio" href="{% if page.url == '/' %}#portfolio{% else %}index.html#portfolio{% endif %}">Work</a></li>
+            <li><a data-spy="about" href="{% if page.url == '/' %}#about{% else %}index.html#about{% endif %}">About</a></li>
+            <li><a data-spy="contact" href="{% if page.url == '/' %}#contact{% else %}index.html#contact{% endif %}">Contact</a></li>
+        </ul>
     </div>
-    <!-- /.container-fluid -->
 </nav>
-
- <a href="#page-top" class="btn-primary back-to-top page-scroll"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></a>
+{% raw %}
+<script>
+    (function(){
+        var nav=document.getElementById('siteNav');
+        if(!nav) return;
+        var links=[].slice.call(nav.querySelectorAll('[data-spy]'));
+        var map={}; links.forEach(function(a){ map[a.getAttribute('data-spy')]=a; });
+        function onScroll(){
+            nav.classList.toggle('is-stuck', window.pageYOffset>8);
+            var triggerY=120, active=null;
+            Object.keys(map).forEach(function(id){ var s=document.getElementById(id); if(s){ var r=s.getBoundingClientRect(); if(r.top<=triggerY && r.bottom>triggerY){ active=id; } } });
+            links.forEach(function(a){ a.removeAttribute('aria-current'); });
+            if(active && map[active]) map[active].setAttribute('aria-current','page');
+        }
+        onScroll();
+        window.addEventListener('scroll', onScroll, {passive:true});
+        window.addEventListener('resize', onScroll, {passive:true});
+        if(document.readyState!=='complete'){ window.addEventListener('load', onScroll); }
+    })();
+</script>
+{% endraw %}

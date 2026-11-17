@@ -1,0 +1,151 @@
+/* Ashfaq Amin — Portfolio Design System — generated from tokens.json */
+:root, [data-theme="light"] {
+  --background: #ffffff; /* Default page background. */
+  --background-subtle: #f7f7f7; /* Subtle background for alternating section bands and recessed panels (the Airbnb grey). */
+  --background-inverse: #222222; /* Inverse background for dark statement sections and the footer; pair with text-inverse. */
+  --surface: #ffffff; /* Raised surface for cards and panels; lifted by border or shadow, not fill. */
+  --surface-warm: #f5f1e8; /* Warm off-white fill for highlight panels (.panel--warm). Text/body-strong on it clear AA. */
+  --text: #000000; /* Primary text and headings. */
+  --text-secondary: #646464; /* Secondary text, captions, and labels. Clears 4.5:1. */
+  --text-tertiary: #665d4f; /* Tertiary / decorative text, large sizes only (≥24px). */
+  --text-inverse: #ffffff; /* Text on inverse backgrounds and on the primary action. */
+  --border: #dddddd; /* Default hairline border and divider — the primary structural device. */
+  --border-subtle: #ebebeb; /* Lighter divider for dense lists. */
+  --action: #8947ff; /* The single accent — a purple reserved for primary calls to action. White text on it clears 4.5:1 (4.76:1). Everything else stays monochrome. */
+  --action-hover: #7c3aed; /* CTA hover / pressed state (5.70:1 with white). */
+  --action-text: #7c3aed; /* The accent used as text on light surfaces (ghost button label, accent links). Darker than `action` so it clears 4.5:1 on white and on the ghost tint. */
+  --action-subtle: #f3eeff; /* Soft accent tint for the ghost button fill at rest. `action-text` on it clears 4.5:1 (5.0:1). */
+  --action-subtle-hover: #ece4ff; /* Ghost button hover tint (`action-text` on it clears 4.6:1). */
+  --focus-ring: #8947ff; /* Keyboard focus ring (the accent; clears 3:1 on every surface). */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.08); /* Resting card elevation. */
+  --shadow-md: 0 6px 16px rgba(0,0,0,0.12); /* Card hover lift, popovers, the NDA modal. */
+}
+:root {
+  --space-1: 4px; /* Hairline gaps. */
+  --space-2: 8px; /* Tight inner padding. */
+  --space-3: 12px; /* Inline gaps, chip padding. */
+  --space-4: 16px; /* Default element spacing. */
+  --space-5: 24px; /* Card padding, paragraph rhythm. */
+  --space-6: 32px; /* Grouped-block spacing. */
+  --space-7: 48px; /* Sub-section spacing. */
+  --space-8: 64px; /* Section padding (mobile). */
+  --space-9: 96px; /* Section padding (desktop). */
+  --space-10: 128px; /* Major section breaks / page gutters. */
+  --radius-sm: 8px; /* Buttons and inputs. */
+  --radius-md: 12px; /* Cards and image corners (the Airbnb card radius). */
+  --radius-lg: 16px; /* Large feature panels. */
+  --radius-pill: 999px; /* Tags, chips, search bars, round buttons. */
+  --font-sans: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --text-display-xl: 700 64px/64px var(--font-sans); /* Hero headline. Hierarchy from size + weight, heavy negative space. */
+  --text-display-l: 700 48px/52px var(--font-sans); /* Secondary hero / big statement openers. */
+  --text-h1: 700 40px/46px var(--font-sans); /* Page title / top of a case study. */
+  --text-h2: 700 32px/38px var(--font-sans); /* Major section title. */
+  --text-h3: 600 24px/30px var(--font-sans); /* Sub-section head. */
+  --text-h4: 600 20px/28px var(--font-sans); /* Card title, minor heading. */
+  --text-h5: 600 16px/24px var(--font-sans); /* Inline heading / dense list head. */
+  --text-h6: 700 13px/18px var(--font-sans); /* Uppercase overline above a section (apply text-transform: uppercase). */
+  --text-lead: 400 24px/32px var(--font-sans); /* Lead paragraph / standfirst. Sits below the heading, above body. */
+  --text-body: 400 16px/26px var(--font-sans); /* Default body copy; keep the measure near 36rem. */
+  --text-body-strong: 600 16px/26px var(--font-sans); /* Emphasized body copy — a key sentence or inline lead-in within a paragraph. */
+  --text-small: 400 14px/21px var(--font-sans); /* Captions and secondary copy. */
+  --text-small-strong: 600 14px/21px var(--font-sans); /* Emphasized small copy — a label, metric, or key figure in a caption row. */
+  --text-label: 600 12px/16px var(--font-sans); /* Meta labels, nav links, overlines (apply text-transform: uppercase). */
+}
+.display-xl {
+  font-family: var(--font-sans);
+  font-size: 64px;
+  line-height: 64px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.display-l {
+  font-family: var(--font-sans);
+  font-size: 48px;
+  line-height: 52px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.h1 {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.h2 {
+  font-family: var(--font-sans);
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.h3 {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.h4 {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.h5 {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.h6 {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.lead {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body-strong {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.small {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.small-strong {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
