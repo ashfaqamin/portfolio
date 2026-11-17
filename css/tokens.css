@@ -19,6 +19,7 @@
   --focus-ring: #8947ff; /* Keyboard focus ring (the accent; clears 3:1 on every surface). */
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.08); /* Resting card elevation. */
   --shadow-md: 0 6px 16px rgba(0,0,0,0.12); /* Card hover lift, popovers, the NDA modal. */
+  --shadow-lg: 0 2px 8px rgba(0,0,0,0.06), 0 16px 40px rgba(0,0,0,0.12); /* Soft lift for framed media (images, gifs, video). */
 }
 :root {
   --space-1: 4px; /* Hairline gaps. */

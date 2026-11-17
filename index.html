@@ -5,10 +5,11 @@ ds: true
 {% raw %}
 <header class="hero" id="top">
     <div class="hero__in">
-        <p>Product and UX Lead &middot; Toronto</p>
-        <h1 class="display-xl">I design complex software<br>that feels <span class="hero__rot"><span class="hero__rot-w" id="heroRot">intuitive</span></span></h1>
+        <p>Product and UX Lead</p>
+        <h1 class="display-xl">I design complex <br class="brk-m">software <br class="brk-d">that <br class="brk-m"><span class="hero__l3">feels <span class="hero__rot"><span class="hero__rot-w" id="heroRot">intuitive</span></span></span></h1>
+        <p class="hero__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Toronto</p>
     </div>
-    <a class="hero__cue" href="#portfolio"><span>View work</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+    <a class="hero__cue" href="#portfolio"><span>Scroll down to view work</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
 </header>
 <script>
 (function(){
@@ -46,6 +47,8 @@ html{scroll-behavior:smooth;}
 .hero{position:relative;min-height:calc(100vh - 64px);min-height:calc(100svh - 64px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:var(--background);scroll-snap-align:start;padding:32px 0 104px;}
 .hero__in{max-width:1728px;width:100%;margin-inline:auto;padding-inline:clamp(24px,4vw,72px);}
 .hero__eyebrow{font-size:14px;font-weight:600;color:var(--text-secondary);margin:0 0 20px;}
+.hero__loc{display:inline-flex;align-items:center;gap:7px;margin-top:28px;font-size:16px;color:var(--text-secondary);}
+.hero__loc svg{width:18px;height:18px;flex:0 0 auto;}
 .hero__statement{font-family:var(--font-sans);font-size:clamp(30px,5vw,56px);line-height:1.1;font-weight:700;letter-spacing:-.025em;color:var(--text);margin:0;}
 .hero__rot{position:relative;display:inline-block;color:var(--action);white-space:nowrap;}
 .hero__rot-w{display:inline-block;will-change:transform,opacity;}
@@ -92,6 +95,15 @@ html{scroll-behavior:smooth;}
 .pf-dots{display:none;}
 }
 @media (prefers-reduced-motion:reduce){.pf-col{opacity:1;transform:none;transition:none;}}
+
+/* mobile: lock the hero headline to 3 consistent lines regardless of the animating word length */
+.brk-m{display:none;}
+@media (max-width:899.98px){
+  .brk-d{display:none;}
+  .brk-m{display:inline;}
+  .hero .display-xl{font-size:clamp(30px,6vw,52px);line-height:1.12;}
+  .hero__l3{white-space:nowrap;}
+}
 </style>
 
 <section id="portfolio" class="pf">

@@ -140,13 +140,14 @@
 /* ---- highlight panel ---- */
 .panel { border-radius: var(--radius-lg); padding: clamp(24px, 3.2vw, 44px); margin-top: clamp(24px, 3vw, 40px); }
 .panel--warm { background: var(--surface-warm); }
+.split > .panel { margin-top: 0; }   /* panel used as a grid column: no stacked top gap */
 
 /* ---- two-up split (e.g. diagram + narrative) ---- */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 56px); align-items: start; }
 @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 40px; } }
 
 /* ---- framed media (bordered, rounded; wraps an img or svg) ---- */
-.frame { display: block; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); overflow: hidden; }
+.frame { display: block; border-radius: var(--radius-md); background: var(--surface); overflow: hidden; box-shadow: var(--shadow-lg, 0 2px 8px rgba(0,0,0,0.06), 0 16px 40px rgba(0,0,0,0.12)); }
 .frame--pad { padding: 10px; }
 .frame > svg, .frame > img { display: block; width: 100%; height: auto; }
 
@@ -246,3 +247,19 @@ body:not(.ds-base) .site-nav__in { width: auto; max-width: 100%; margin-inline: 
 
 /* standalone figure in a section (adds the standard top gap; grid-child figures don't need it) */
 .figure { margin-top: clamp(24px, 3vw, 36px); }
+
+/* aside split: a narrow text column beside a wide media column (e.g. problem + diagram) */
+.split--aside { grid-template-columns: minmax(0, 0.9fr) minmax(0, 2.1fr); margin-bottom: clamp(40px, 5vw, 64px); }
+@media (max-width: 860px) { .split--aside { grid-template-columns: 1fr; margin-bottom: 32px; } }
+
+/* steps as side-by-side columns with vertical dividers; number stacks above the title */
+.steps--row { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 3vw, 44px); margin-top: clamp(28px, 3vw, 40px); }
+.steps--row .steps__item { border-top: 0; border-left: 1px solid var(--border); padding: 0 0 0 clamp(20px, 2vw, 32px); }
+.steps--row .steps__item:first-child { border-left: 0; padding-left: 0; }
+.steps--row .steps__n { display: block; margin: 0 0 8px; color: var(--text-secondary); }
+@media (max-width: 760px) {
+  .steps--row { grid-template-columns: 1fr; gap: 0; }
+  .steps--row .steps__item { border-left: 0; padding: var(--space-5) 0; border-top: 1px solid var(--border); }
+  .steps--row .steps__item:first-child { border-top: 0; padding-top: 0; }
+  .steps--row .steps__n { display: inline; margin: 0 6px 0 0; color: var(--text); }
+}
