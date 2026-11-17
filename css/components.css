@@ -86,7 +86,6 @@
 
 /* ---- section + section heading ---- */
 .section { padding-block: clamp(64px, 6vw, 96px); background: var(--background); }
-.section + .section { border-top: 1px solid var(--border); }
 .section--sunken { background: var(--background-subtle); }
 .section--ink { background: var(--background-inverse); color: var(--text-inverse); }
 .section--ink .section__title { color: var(--text-inverse); }
@@ -96,7 +95,7 @@
   color: var(--text-secondary); margin: 0 0 12px;
 }
 .section__title {
-  font-family: var(--font-sans); font-weight: 700;
+  font-family: var(--font-sans);
   font-size: clamp(28px, 1rem + 2.6vw, 40px); line-height: 1.08; letter-spacing: -0.02em;
   margin: 0 0 16px; color: var(--text); max-width: 20ch;
 }
