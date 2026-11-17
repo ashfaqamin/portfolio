@@ -59,7 +59,7 @@
 /* ---- site navigation ---- */
 .site-nav {
   position: sticky; top: 0; z-index: 50; background: var(--background);
-  border-bottom: 1px solid transparent; transition: border-color .3s ease;
+  border-bottom: 1px solid var(--border); transition: border-color .3s ease;
 }
 .site-nav.is-stuck { border-bottom-color: var(--border); }
 .site-nav__in {
@@ -168,9 +168,9 @@
 .card ul { margin: 0; padding-left: 18px; }
 .card li { font: var(--text-small); color: var(--text-secondary); margin-bottom: var(--space-2); }
 
-/* ---- method tags / chips ---- */
+/* ---- tags / chips ---- */
 .tag-row { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
-.tag { font: var(--text-label); color: var(--text-secondary); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 4px 11px; }
+.tag { font: var(--text-label); background-color: var(--background-subtle); color: var(--text-secondary); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 4px 11px; }
 
 /* ---- core insight (statement + supporting body) ---- */
 .insight { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
@@ -188,10 +188,11 @@
 .media-row--flip .media-row__text { order: 2; }
 .media-row--flip .media-row__media { order: 1; }
 @media (max-width: 860px) { .media-row--flip .media-row__text, .media-row--flip .media-row__media { order: 0; } }
-.media-row__lead { font: var(--text-h4); margin: 0 0 var(--space-4); }
+.media-row__lead { font-weight: 600; margin: 0 0 var(--space-4); }
 .media-row__text ul { margin: 0; padding-left: 18px; }
 .media-row__text li { font: var(--text-small); color: var(--text-secondary); margin-bottom: 12px; }
 .media-row__text li strong { color: var(--text); font-weight: 600; }
+.media-row__text p {color: var(--text-secondary);}
 
 /* ---- zoomable media + lightbox (any case-study image opens larger) ---- */
 .zoom { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; position: relative; font: inherit; color: inherit; text-align: inherit; border-radius: var(--radius-md); }
@@ -224,3 +225,24 @@ body:not(.ds-base) .site-nav__in { width: auto; max-width: 100%; margin-inline: 
 @media (min-width: 1200px) { body:not(.ds-base) .site-nav__in { width: 1170px; } }
 /* keep nav text rendering identical on legacy (non-ds) pages too */
 .site-nav { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* ---- figure caption (under any case-study image) ---- */
+.figcaption { font: var(--text-small); color: var(--text); margin-top: var(--space-3); }
+.figcaption__n { color: var(--text-secondary); }   /* "Fig N:" in secondary; description stays --text (black) */
+
+/* ---- figures side by side (equal-width gallery row; use instead of .media-row for N figures) ---- */
+.figure-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2.5vw, 28px); align-items: start; margin-top: clamp(24px, 3vw, 36px); }
+.figure-row--3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 760px) { .figure-row, .figure-row--3 { grid-template-columns: 1fr; } }
+/* optional: lock identical image boxes so captions line up (contain = letterbox, never crop) */
+.figure-row--uniform .frame { aspect-ratio: var(--fig-ar, 16 / 10); display: grid; place-items: center; }
+.figure-row--uniform .frame img { width: 100%; height: 100%; object-fit: contain; }
+
+/* video inside a .frame (walkthroughs, screen recordings) */
+.frame > video { display: block; width: 100%; height: auto; background: #000; }
+
+/* embedded iframe inside a .frame (Drive / Loom / YouTube players) */
+.frame > iframe { display: block; width: 100%; aspect-ratio: var(--embed-ar, 16 / 9); border: 0; }
+
+/* standalone figure in a section (adds the standard top gap; grid-child figures don't need it) */
+.figure { margin-top: clamp(24px, 3vw, 36px); }

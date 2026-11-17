@@ -20,3 +20,6 @@ __pycache__/
 *.bak2
 /Claude outputs/
 /_stash/
+
+# large source video — embedded from Google Drive, not committed (exceeds GitHub's 100MB limit)
+img/proactive_ai_vision/meeting-experience-prototype-loom.mp4

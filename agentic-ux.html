@@ -43,6 +43,7 @@ title: "Agentic UX vision for HubSpot's Customer Success · Ashfaq Amin"
     <div class="panel panel--warm">
     <div class="split">
       <!-- diagram -->
+      <figure>
       <button class="zoom" aria-label="Open the system diagram larger">
       <span class="frame frame--pad">
         <svg viewBox="0 0 1000 720" role="img" aria-label="Orbital diagram: a central context layer with five agents orbiting clockwise, orchestration, outreach, meeting prep, live call, meeting wrap, with the recap looping back, all wrapped by the always-on Success Assistant.">
@@ -95,6 +96,8 @@ title: "Agentic UX vision for HubSpot's Customer Success · Ashfaq Amin"
       </span>
       <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </button>
+      <figcaption class="figcaption"><span class="figcaption__n">Fig 1:</span> The end-to-end agentic system: a shared context layer feeding five human-in-the-loop agents.</figcaption>
+      </figure>
 
       <!-- the approach -->
       <div>
@@ -170,27 +173,29 @@ title: "Agentic UX vision for HubSpot's Customer Success · Ashfaq Amin"
     <h1>Designing the system end-to-end</h1>
     <div class="media-row">
       <div class="media-row__text">
-        <h4 class="media-row__lead">A completely redesigned CS Workspace, where reps begin their day without piecing together what to do next.</h4>
+        <h2 class="media-row__lead">A completely redesigned CS Workspace, where reps begin their day without piecing together what to do next.</h2>
         <ul>
           <li>Top priorities are surfaced, ranked, and ready to go: no digging, no second-guessing.</li>
           <li>AI-prepared strategies, emails, and plans are waiting at their fingertips.</li>
           <li>Calendar, goals, and metrics all in one view, seamlessly connected.</li>
           <li>With the Success Assistant built in, the rep doesn't work alone. One click to shift focus, refine priorities, or ask it to spotlight something new.</li>
         </ul>
+        <div class="tag-row"><span class="tag">Orchestrator agent</span></div>
       </div>
-      <div class="media-row__media">
+      <figure class="media-row__media">
         <button class="zoom" aria-label="Enlarge the CS Workspace walkthrough">
           <span class="frame"><img src="img/proactive_ai_vision/s1.gif" alt="CS Workspace walkthrough: prioritized actions, schedule, metrics, and the Success Assistant panel"></span>
           <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </button>
-      </div>
+        <figcaption class="figcaption"><span class="figcaption__n">Fig 2:</span> The rep lands in CS Workspace upon login and sees today's priorities in ranked order. The system can suggest events on their calendar. Success Assistant surfaces page-aware canned prompts.</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="section" id="actions-view" aria-label="Actions-focused view">
     <div class="media-row media-row--flip">
       <div class="media-row__text">
-        <h4 class="media-row__lead">Actions focused view – where things get done</h4>
+        <h2 class="media-row__lead">Actions focused view – where things get done</h2>
         <ul>
           <li>This is where the rep moves from one high-impact task to the next, seamlessly.</li>
           <li>Whatever the task - a follow-up, a save play, or a key email - it's already teed up and ready for them to review and confirm. No digging, no switching tools.</li>
@@ -198,14 +203,75 @@ title: "Agentic UX vision for HubSpot's Customer Success · Ashfaq Amin"
           <li>With the Success Assistant built in, the rep doesn't work alone. One click to shift focus, refine priorities, or ask it to spotlight something new.</li>
         </ul>
       </div>
-      <div class="media-row__media">
+      <figure class="media-row__media">
         <button class="zoom" aria-label="Enlarge the actions-focused view">
           <span class="frame"><img src="img/proactive_ai_vision/s2.gif" alt="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"></span>
           <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </button>
+        <figcaption class="figcaption"><span class="figcaption__n">Fig 3:</span> An email draft prepared by Outreach Agent. The rep reviews, refines part of it and sends confidently.</figcaption>
+      </figure>
+    </div>
+  
+    <div class="panel panel--warm">
+      <div class="media-row__text">
+        <h2 class="media-row__lead">From scattered meeting prep to confident conversations.</h2>
+        <ul>
+          <li>The Orchestrator triggers the <strong>Meeting Agent</strong> upon reading the rep's calendar and creates prep material for upcoming customer calls.</li>
+          <li>The agent performs a comprehensive research of the customer analyzing usage trends, business goals, renewal info, and past engagements. This research used to take days before AI.</li>
+          <li>Success Assistant, fully aware of the meeting context, helps the rep with any question they have about the customer — all without leaving their prep view.</li>
+          <li>When they highlight a detail, a quick prompt pop-up lets them ask deeper questions in place, making every insight just a click away.</li>
+        </ul>
       </div>
+      
+      <div class="figure-row">
+        <figure class="media-row__media">
+          <button class="zoom" aria-label="Enlarge the actions-focused view">
+            <span class="frame"><img src="img/proactive_ai_vision/prep-agent.gif" alt="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"></span>
+            <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <figcaption class="figcaption"><span class="figcaption__n">Fig 4:</span> The agent reads across - engagement history, usage patterns, renewal timelines - and assembles a tailored prep briefing for every customer call. It ensures CS reps walk into meetings ready to advise, not scramble.</figcaption>
+        </figure>
+        <figure class="media-row__media">
+          <button class="zoom" aria-label="Enlarge the actions-focused view">
+            <span class="frame"><img src="img/proactive_ai_vision/prep-agent-2.gif" alt="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"></span>
+            <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <figcaption class="figcaption"><span class="figcaption__n">Fig 5:</span> The rep can modify the prep content with or without the help of AI.</figcaption>
+        </figure>
+      </div>
+      
     </div>
   </section>
+
+  <section class="section" id="multi-agent" aria-label="Multiple agents in action">
+    <div class="media-row media-row--flip">
+      <div class="media-row__text">
+        <h2 class="media-row__lead">Multiple agents can get triggered for one customer portal. The rep sees a streamlined sequence of agent outputs to review and complete the action.</h2>
+        <p>In this example, the system grouped a set of actions into one guided sequence - so the rep can review a tailored growth plan and send it, all in one place.</p>
+      </div>
+      <figure class="media-row__media">
+        <button class="zoom" aria-label="Enlarge the actions-focused view">
+          <span class="frame"><img src="img/proactive_ai_vision/s3.gif" alt="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"></span>
+          <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <figcaption class="figcaption"><span class="figcaption__n">Fig 6:</span> Under one action, the rep sees a success plan drafted by the Success agent, and a draft email written by the Outreach agent.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="walkthrough" aria-label="Prototype walkthrough">
+  
+  <div class="media-row">
+    <h2>Demo over memo – with vibecoded prototyping</h2>
+      <p class="body ds-measure">I used Lovable for early concept prototyping. Later I also utilized Claude as we shipped the vision into production. At every stage, I shared Loom walkthroughs of the prototypes to align the teams and stakeholders.</p>
+  </div>
+    <figure class="figure">
+    <span class="frame">
+      <iframe src="https://drive.google.com/file/d/1hhiOkHI1tYucex7tNP9RbiBjwoJDDJP3/preview" allow="autoplay; fullscreen" allowfullscreen title="End-to-end prototype walkthrough"></iframe>
+    </span>
+    <figcaption class="figcaption"><span class="figcaption__n">Fig 7:</span> The end-to-end Meeting Experience walkthrough I recorded to align teams and stakeholders on the vision.</figcaption>
+  </figure>
+</section>
 
 </main>
 
