@@ -23,3 +23,7 @@ __pycache__/
 
 # large source video — embedded from Google Drive, not committed (exceeds GitHub's 100MB limit)
 img/proactive_ai_vision/meeting-experience-prototype-loom.mp4
+
+# Protected case study — plaintext source + build step (NEVER pushed; only the encrypted agentic-ux.html ships)
+agentic-ux.source.html
+encrypt.py
