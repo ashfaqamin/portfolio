@@ -1,243 +1,49 @@
 ---
 layout: default
 ds: true
-title: "Agentic UX vision for HubSpot's Customer Success · Ashfaq Amin"
+title: "Protected case study · Ashfaq Amin"
 ---
 {% raw %}
-<!-- CONFIDENTIAL DRAFT: HubSpot-internal content. Gate or redact before this is public. -->
-<!-- All styling comes from the global design system: css/tokens.css + css/components.css. No page-local CSS. -->
-
-<main class="ds-container">
-
-  <!-- HERO -->
-  <section class="hero" aria-label="Introduction">
-    <p class="h6 hero__kicker">HubSpot · 2025–2026</p>
-    <h1 class="display-xl hero__title">Agentic UX vision for<br>HubSpot's Customer Success</h1>
-    <p class="lead hero__sub">Grounded in research, I defined the UX vision that turns days of a rep's manual work into hours through agentic systems, enabling CS reps and teams to hit their raised organizational targets.</p>
-    <dl class="hero__meta">
-      <div>
-        <dt>Role</dt>
-        <dd>UX Lead</dd>
-      </div>
-      <div>
-        <dt>Scope</dt>
-        <dd>Research<br>System design<br>Vibecoded prototypes<br>End-to-end experience</dd>
-      </div>
-      <div>
-        <dt>Teams</dt>
-        <dd>PM, TL, EL, Group leads<br>Data Science<br>Cross-functional business stakeholders and partners<br>Design System</dd>
-      </div>
-    </dl>
-    <!--
-    <div class="hero__media"><span>An illustrative image showing screens from the different agents</span></div>
-    -->
-    
-  </section>
-
-  <!-- OVERVIEW -->
-  <section class="section" id="overview" aria-label="Overview">
-    <h1 class="display">Overview</h1>
-    <div class="panel panel--warm">
-      <div class="split split--aside">
-        <div>
-          <p class="section__eyebrow">The problem</p>
-          <p class="body">CS reps spent days preparing just to decide which customers needed outreach, and in what order. Churn risk often hid in conversations other reps had with the account, even while the usage data looked healthy. And after every connected call, reps lost hours to the follow-up, because not every customer question could be answered live and most issues couldn't be resolved on the spot.</p>
-        </div>
-        <figure>
-          <button class="zoom" aria-label="Open the system architecture diagram larger">
-            <span class="frame"><img src="img/proactive_ai_vision/simplified-system-architecture.png" alt="Simplified system architecture: a context layer feeding an orchestrator that triggers the outreach, meeting, live-call and success agents"></span>
-            <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </button>
-          <figcaption class="figcaption"><span class="figcaption__n">Fig 1:</span> A simplified architecture of the system.</figcaption>
-        </figure>
-      </div>
-      <p class="section__eyebrow">The approach</p>
-      <p class="lead">The Success Assistant already let reps ask the AI anything and get a useful answer, but it was <strong>reactive</strong>; it waited to be asked. This vision makes Customer Success <strong>proactive</strong>: a system that catches risk and opportunity before a rep would, prepares the response as reviewable drafts, and leaves every decision with the rep. It works as one arc:</p>
-      <div class="steps steps--row">
-        <div class="steps__item">
-          <h3 class="steps__title"><span class="steps__n">1</span>Prioritize the book</h3>
-          <p class="steps__body">The Orchestrator is the proactive engine, not an agent reps talk to. It continuously reads the context layer and the rep's whole book for the two signals humans miss: accounts sliding toward churn while the usage still looks healthy, and accounts ready to grow. It ranks who needs the rep today, shows why, and sets the downstream agents to work.</p>
-        </div>
-        <div class="steps__item">
-          <h3 class="steps__title"><span class="steps__n">2</span>Reach out</h3>
-          <p class="steps__body">The Outreach agent drafts proactive, personalized outreach in the rep's voice, timed to that account's moment. The rep reviews, adjusts, and sends. The agent writes; the rep decides.</p>
-        </div>
-        <div class="steps__item">
-          <h3 class="steps__title"><span class="steps__n">3</span>Meet and follow-up</h3>
-          <p class="steps__body">The Meeting agent drafts the prep before the call and the recap after, while the Live call assistant surfaces answers in the moment. Prep, live call, and recap flow as one experience, each a draft the rep confirms, and the recap feeds the next cycle so the system sharpens over time.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DISCOVERY -->
-  <section class="section" id="discover" aria-label="Discovery research">
-    <h1>Discovery research</h1>
-    <p class="body">I built the vision on the following three layers of evidence:</p>
-    <div class="card-grid">
-      <div class="card">
-        <h3 class="card__title">Synthesized existing research</h3>
-        <ul>
-          <li>I pulled every relevant past study, mine and other designers', into NotebookLM to surface recurring pain-point themes and map the rep's journeys.</li>
-          <li>These journeys uncovered where automation will be useful.</li>
-          <li>NotebookLM let cross-functional stakeholders ask deeper questions and validate the findings and direction.</li>
-        </ul>
-        <div class="tag-row"><span class="tag">Research synthesis</span><span class="tag">Journey mapping</span></div>
-      </div>
-      <div class="card">
-        <h3 class="card__title">Mined the Success Assistant's chat logs</h3>
-        <p class="card__text">I had designed HubSpot CS's <strong>first conversational AI assistant</strong> before this vision. Using Claude, I analyzed its real chat logs against the pain themes, cross-matching to see what reps were actually trying to accomplish with proprietary HubSpot data behind the assistant.</p>
-        <div class="tag-row"><span class="tag">Behavioural log analysis</span></div>
-      </div>
-      <div class="card">
-        <h3 class="card__title">Validated with CS reps</h3>
-        <p class="card__text">I interviewed CS reps of varying tenures and geo-locations to pressure-test the themes and pinpoint where the real gaps were, grounding the vision in their reality.</p>
-        <div class="tag-row"><span class="tag">In-depth interviews</span></div>
-      </div>
-    </div>
-
-    <div class="panel panel--warm">
-      <div class="insight">
-        <div>
-          <p class="insight__statement">Reps were spending days deciding who to call, right as the bar for connected calls got higher.</p>
-          <p class="insight__label">The core insight</p>
-        </div>
-        <div class="insight__body">
-          <p>Reps spent a huge share of their time just prioritizing their book of business, manually combining:</p>
-          <ul>
-            <li>Unified Usage Score (a health model I had designed earlier)</li>
-            <li>Past conversations, literally reading through engagements (emails, call logs, notes)</li>
-            <li>Subscription data</li>
-            <li>Product updates that fit a particular customer need</li>
-          </ul>
-          <p>Success Assistant helped prioritize, draft outreach and prep a lot faster than before, but it still required reps to prompt it well. At that moment, most reps weren't AI fluent, and most of what they were trying to do could be automated and performed upfront for them to review.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DESIGNING THE SYSTEM -->
-  <section class="section" id="design" aria-label="Designing the system end-to-end">
-    <h1>Designing the system end-to-end</h1>
-    <div class="media-row">
-      <div class="media-row__text">
-        <h2 class="media-row__lead">A completely redesigned CS Workspace, where reps begin their day without piecing together what to do next.</h2>
-        <ul>
-          <li>Top priorities are surfaced, ranked, and ready to go: no digging, no second-guessing.</li>
-          <li>AI-prepared strategies, emails, and plans are waiting at their fingertips.</li>
-          <li>Calendar, goals, and metrics all in one view, seamlessly connected.</li>
-          <li>With the Success Assistant built in, the rep doesn't work alone. One click to shift focus, refine priorities, or ask it to spotlight something new.</li>
-        </ul>
-        <div class="tag-row"><span class="tag">Orchestrator agent</span></div>
-      </div>
-      <figure class="media-row__media">
-        <button class="zoom" aria-label="Enlarge the CS Workspace walkthrough">
-          <span class="frame"><img src="img/proactive_ai_vision/s1.gif" alt="CS Workspace walkthrough: prioritized actions, schedule, metrics, and the Success Assistant panel"></span>
-          <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </button>
-        <figcaption class="figcaption"><span class="figcaption__n">Fig 2:</span> The rep lands in CS Workspace upon login and sees today's priorities in ranked order. The system can suggest events on their calendar. Success Assistant surfaces page-aware canned prompts.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section" id="actions-view" aria-label="Actions-focused view">
-    <div class="media-row media-row--flip">
-      <div class="media-row__text">
-        <h2 class="media-row__lead">Actions focused view – where things get done</h2>
-        <ul>
-          <li>This is where the rep moves from one high-impact task to the next, seamlessly.</li>
-          <li>Whatever the task - a follow-up, a save play, or a key email - it's already teed up and ready for them to review and confirm. No digging, no switching tools.</li>
-          <li>And if they need more context or want to tweak something, the Success Assistant is right there on the side - not flooding them with information, just offering exactly what they need, when they need it.</li>
-          <li>With the Success Assistant built in, the rep doesn't work alone. One click to shift focus, refine priorities, or ask it to spotlight something new.</li>
-        </ul>
-      </div>
-      <figure class="media-row__media">
-        <button class="zoom" aria-label="Enlarge the actions-focused view">
-          <span class="frame"><img src="img/proactive_ai_vision/s2.gif" alt="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"></span>
-          <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </button>
-        <figcaption class="figcaption"><span class="figcaption__n">Fig 3:</span> An email draft prepared by Outreach Agent. The rep reviews, refines part of it and sends confidently.</figcaption>
-      </figure>
-    </div>
-  
-    <div class="panel panel--warm">
-      <div class="media-row__text">
-        <h2 class="media-row__lead">From scattered meeting prep to confident conversations.</h2>
-        <ul>
-          <li>The Orchestrator triggers the <strong>Meeting Agent</strong> upon reading the rep's calendar and creates prep material for upcoming customer calls.</li>
-          <li>The agent performs a comprehensive research of the customer analyzing usage trends, business goals, renewal info, and past engagements. This research used to take days before AI.</li>
-          <li>Success Assistant, fully aware of the meeting context, helps the rep with any question they have about the customer — all without leaving their prep view.</li>
-          <li>When they highlight a detail, a quick prompt pop-up lets them ask deeper questions in place, making every insight just a click away.</li>
-        </ul>
-      </div>
-      
-      <div class="figure-row">
-        <figure class="media-row__media">
-          <button class="zoom" aria-label="Enlarge the actions-focused view">
-            <span class="frame"><img src="img/proactive_ai_vision/prep-agent.gif" alt="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"></span>
-            <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </button>
-          <figcaption class="figcaption"><span class="figcaption__n">Fig 4:</span> The agent reads across - engagement history, usage patterns, renewal timelines - and assembles a tailored prep briefing for every customer call. It ensures CS reps walk into meetings ready to advise, not scramble.</figcaption>
-        </figure>
-        <figure class="media-row__media">
-          <button class="zoom" aria-label="Enlarge the actions-focused view">
-            <span class="frame"><img src="img/proactive_ai_vision/prep-agent-2.gif" alt="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"></span>
-            <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </button>
-          <figcaption class="figcaption"><span class="figcaption__n">Fig 5:</span> The rep can modify the prep content with or without the help of AI.</figcaption>
-        </figure>
-      </div>
-      
-    </div>
-  </section>
-
-  <section class="section" id="multi-agent" aria-label="Multiple agents in action">
-    <div class="media-row media-row--flip">
-      <div class="media-row__text">
-        <h2 class="media-row__lead">Multiple agents can get triggered for one customer portal. The rep sees a streamlined sequence of agent outputs to review and complete the action.</h2>
-        <p>In this example, the system grouped a set of actions into one guided sequence - so the rep can review a tailored growth plan and send it, all in one place.</p>
-      </div>
-      <figure class="media-row__media">
-        <button class="zoom" aria-label="Enlarge the actions-focused view">
-          <span class="frame"><img src="img/proactive_ai_vision/s3.gif" alt="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"></span>
-          <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </button>
-        <figcaption class="figcaption"><span class="figcaption__n">Fig 6:</span> Under one action, the rep sees a success plan drafted by the Success agent, and a draft email written by the Outreach agent.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section" id="walkthrough" aria-label="Prototype walkthrough">
-  
-  <div class="media-row">
-    <h2>Demo over memo – with vibecoded prototypes</h2>
-      <p class="body ds-measure">I used Lovable for early concept prototyping. Later I also utilized Claude as we shipped the vision into production. At every stage, I shared Loom walkthroughs of the prototypes to align the teams and stakeholders.</p>
-  </div>
-    <figure class="figure">
-    <span class="frame">
-      <iframe src="https://drive.google.com/file/d/1hhiOkHI1tYucex7tNP9RbiBjwoJDDJP3/preview" allow="autoplay; fullscreen" allowfullscreen title="End-to-end prototype walkthrough"></iframe>
-    </span>
-    <figcaption class="figcaption"><span class="figcaption__n">Fig 7:</span> The end-to-end Meeting Experience walkthrough I recorded to align teams and stakeholders on the vision.</figcaption>
-  </figure>
-</section>
-
+<main class="gate" id="csGate" aria-label="Protected case study">
+  <h1 class="h3">This case study is password protected</h1>
+  <p class="small">Enter the password to view it.</p>
+  <form id="csForm" class="gate__form">
+    <input type="password" id="csPw" class="field" placeholder="Password" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Password">
+    <button type="submit" class="btn btn--primary">Unlock</button>
+    <p class="small gate__err" id="csErr" role="alert" hidden>Incorrect password. Please try again.</p>
+  </form>
 </main>
-
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged view">
-  <div class="lightbox__scrim" data-close></div>
-  <button class="lightbox__close" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-  <div class="lightbox__content" id="lbContent"></div>
-</div>
-
+<div id="csContent"></div>
 <script>
-  // image lightbox — every case-study image opens larger
-  (function(){
-    var lb=document.getElementById('lightbox'),lbC=document.getElementById('lbContent'),lbX=document.getElementById('lbClose'),last=null;
+(function(){
+  var ENC = {"salt": "2r7XmOUfK0p46/NprxWrgQ==", "iv": "5Jxs5nou7enJVIdx", "ct": "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", "iter": 200000};
+  var gate=document.getElementById('csGate'), form=document.getElementById('csForm'),
+      pw=document.getElementById('csPw'), err=document.getElementById('csErr'), content=document.getElementById('csContent');
+  function b(s){return Uint8Array.from(atob(s), function(c){return c.charCodeAt(0);});}
+  function decrypt(pass){
+    var salt=b(ENC.salt), iv=b(ENC.iv), ct=b(ENC.ct);
+    return crypto.subtle.importKey("raw", new TextEncoder().encode(pass), "PBKDF2", false, ["deriveKey"])
+      .then(function(k){return crypto.subtle.deriveKey({name:"PBKDF2",salt:salt,iterations:ENC.iter,hash:"SHA-256"}, k, {name:"AES-GCM",length:256}, false, ["decrypt"]);})
+      .then(function(key){return crypto.subtle.decrypt({name:"AES-GCM",iv:iv}, key, ct);})
+      .then(function(buf){return new TextDecoder().decode(buf);});
+  }
+  function initLightbox(){
+    var lb=document.getElementById('lightbox'); if(!lb) return;
+    var lbC=document.getElementById('lbContent'), lbX=document.getElementById('lbClose'), last=null;
     function open(node){lbC.innerHTML='';var c=node.cloneNode(true);c.removeAttribute('style');lbC.appendChild(c);last=document.activeElement;lb.classList.add('is-open');document.body.style.overflow='hidden';lbX.focus();}
     function close(){lb.classList.remove('is-open');document.body.style.overflow='';lbC.innerHTML='';if(last)last.focus();}
-    document.querySelectorAll('.zoom').forEach(function(z){z.addEventListener('click',function(){var v=z.querySelector('img,svg');if(v)open(v);});});
-    lbX.addEventListener('click',close);lb.querySelector('[data-close]').addEventListener('click',close);
-    addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('is-open'))close();});
-  })();
+    content.querySelectorAll('.zoom').forEach(function(z){z.addEventListener('click',function(){var v=z.querySelector('img,svg');if(v)open(v);});});
+    lbX.addEventListener('click',close); var dc=lb.querySelector('[data-close]'); if(dc)dc.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('is-open'))close();});
+  }
+  function reveal(html){ content.innerHTML=html; gate.style.display='none'; try{document.title="Agentic UX vision for Customer Success · Ashfaq Amin";}catch(e){} initLightbox(); }
+  var stored=null; try{stored=sessionStorage.getItem("cs_pw");}catch(e){}
+  if(stored){ decrypt(stored).then(reveal).catch(function(){}); }
+  form.addEventListener("submit", function(e){
+    e.preventDefault(); err.hidden=true;
+    decrypt(pw.value).then(function(html){ try{sessionStorage.setItem("cs_pw",pw.value);}catch(e){} reveal(html); })
+      .catch(function(){ err.hidden=false; pw.value=""; pw.focus(); });
+  });
+})();
 </script>
 {% endraw %}

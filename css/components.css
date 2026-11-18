@@ -263,3 +263,11 @@ body:not(.ds-base) .site-nav__in { width: auto; max-width: 100%; margin-inline: 
   .steps--row .steps__item:first-child { border-top: 0; padding-top: 0; }
   .steps--row .steps__n { display: inline; margin: 0 6px 0 0; color: var(--text); }
 }
+
+/* password gate: centered prompt for a protected page (fills the space above the footer) */
+.gate { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: var(--space-4); padding: clamp(64px, 12vh, 160px) 24px; }
+.gate__form { display: flex; flex-direction: column; gap: var(--space-3); width: 100%; max-width: 320px; margin-top: var(--space-2); }
+.gate__err { color: #c0392b; }
+.field { width: 100%; height: 46px; padding: 0 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); color: var(--text); font: var(--text-body); }
+.field::placeholder { color: var(--text-tertiary); }
+.field:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 1px; border-color: var(--action); }
