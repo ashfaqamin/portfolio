@@ -189,7 +189,7 @@
 .media-row--flip .media-row__text { order: 2; }
 .media-row--flip .media-row__media { order: 1; }
 @media (max-width: 860px) { .media-row--flip .media-row__text, .media-row--flip .media-row__media { order: 0; } }
-.media-row__lead { font-weight: 600; margin: 0 0 var(--space-4); }
+.media-row__lead { font-weight: 400; margin: 0 0 var(--space-4); }
 .media-row__text ul { margin: 0; padding-left: 18px; }
 .media-row__text li { font: var(--text-small); color: var(--text-secondary); margin-bottom: 12px; }
 .media-row__text li strong { color: var(--text); font-weight: 600; }
@@ -285,3 +285,20 @@ body:not(.ds-base) .site-nav__in { width: auto; max-width: 100%; margin-inline: 
 .process__proof { margin-top: clamp(40px,5vw,64px); }
 @media (max-width:860px){ .process { grid-template-columns:1fr 1fr; gap:24px; } }
 @media (max-width:560px){ .process { grid-template-columns:1fr; } }
+
+/* ---- key findings ---- */
+.findings__lead { margin-top: 16px; }
+.fgroup { margin-top: clamp(44px,5vw,72px); }
+.fgroup__head { padding-bottom: 14px; border-bottom: 1px solid var(--text); }
+.fgroup__n { margin: 0; }
+.finding { display: grid; grid-template-columns: minmax(0,0.9fr) minmax(0,1.6fr); gap: clamp(24px,4vw,64px); padding: clamp(28px,3.5vw,44px) 0; }
+.finding__label { font: var(--text-label); letter-spacing: 0.06em; color: var(--text-tertiary); margin: 0 0 10px; }
+.finding__insight .lead { margin: 0; }
+.finding__body { margin: 0; color: var(--text-secondary); }
+.finding__insight .finding__body { margin-top: 18px; }
+.finding__fig { margin-top: 24px; }
+.finding-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px,4vw,56px); padding: clamp(32px,4vw,48px) 0; }
+.fitem__label { font: var(--text-label); letter-spacing: 0.06em; color: var(--text-tertiary); margin: 0 0 10px; }
+.fitem__insight { margin: 0; }
+.fitem__body { margin: 14px 0 0; color: var(--text-secondary); }
+@media (max-width: 760px) { .finding { grid-template-columns: 1fr; gap: 14px; } .finding-pair { grid-template-columns: 1fr; gap: 32px; } }
