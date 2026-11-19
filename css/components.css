@@ -272,3 +272,16 @@ body:not(.ds-base) .site-nav__in { width: auto; max-width: 100%; margin-inline: 
 .field { width: 100%; height: 46px; padding: 0 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); color: var(--text); font: var(--text-body); }
 .field::placeholder { color: var(--text-tertiary); }
 .field:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 1px; border-color: var(--action); }
+
+/* ---- section overline ---- */
+.eyebrow { display:block; font: var(--text-label); letter-spacing:0.06em; color: var(--text-tertiary); margin:0 0 10px; }
+
+/* ---- implementation: process strip + proof collage ---- */
+.process__intro { margin-top:14px; }
+.process { list-style:none; margin: clamp(32px,4vw,48px) 0 0; padding:0; display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+.process__n { display:inline-block; font: var(--text-label); letter-spacing:0.06em; color: var(--text-tertiary); }
+.process__title { margin:4px 0 0; }
+.process__desc { margin:8px 0 0; color: var(--text-secondary); }
+.process__proof { margin-top: clamp(40px,5vw,64px); }
+@media (max-width:860px){ .process { grid-template-columns:1fr 1fr; gap:24px; } }
+@media (max-width:560px){ .process { grid-template-columns:1fr; } }
