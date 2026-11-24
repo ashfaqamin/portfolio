@@ -326,3 +326,38 @@ body:not(.ds-base) .site-nav__in { width: auto; max-width: 100%; margin-inline: 
 .o-award__note { margin-top: 14px; color: var(--text-secondary); max-width: 46ch; }
 .o-avail:not(:first-child) { margin-top: clamp(24px,3vw,32px); }
 .o-quotes .btn { margin-top: clamp(24px,3vw,32px); }
+
+/* =====================================================================
+   RESEARCH PAGE ADDITIONS — reusable patterns added during the
+   research.html migration. Named generically, not page-specific.
+   ===================================================================== */
+
+/* body copy at medium weight (fills the 16px/500 gap between .body and .body-strong) */
+.body-medium { font-family: var(--font-sans); font-size: 16px; line-height: 26px; font-weight: 500; letter-spacing: 0; }
+
+/* accent text link — the design system's one purple link (the One Voice Rule) */
+.ds-link { color: var(--action-text); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; transition: color .18s ease; }
+.ds-link:hover { color: var(--action-hover); }
+.ds-link:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+/* a row of action buttons with correct top spacing after a text block */
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: clamp(20px, 2.5vw, 28px); align-items: center; }
+
+/* vertically centre a .split's two columns (default .split aligns to the top) */
+.split--center { align-items: center; }
+
+/* constrain a figure to a thumbnail width (e.g. a tall poster that enlarges on click) */
+.figure--narrow { max-width: 420px; }
+
+/* portrait aspect ratio for a uniform figure row */
+.figure-row--portrait { --fig-ar: 4 / 5; }
+
+/* a labelled sub-block inside a section or component (eyebrow + content), with a top gap */
+.subsection { margin-top: clamp(24px, 3vw, 32px); }
+.subsection .steps { margin-top: 0; }
+
+/* heading above a lead inside a media-row text column needs a small gap below it */
+.media-row__text > h3 { margin-bottom: var(--space-3); }
+
+/* a figure row placed directly in a media-row media column shouldn't add its own top gap */
+.media-row__media > .figure-row { margin-top: 0; }
