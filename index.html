@@ -254,7 +254,7 @@ html{scroll-behavior:smooth;}
           <p class="about-eyebrow">About</p>
           <h2 class="about-statement">A multidisciplinary designer across design, research, and development</h2>
           <p class="about-lead">10+ years in enterprise SaaS, partnering with cross-functional agile teams on product vision and roadmap &mdash; focused on AI and agentic UX, user research, high-fidelity prototyping, and accessibility. Most recently worked at <a href="https://www.hubspot.com/">HubSpot</a> as a Senior Product Designer.</p>
-          <p class="about-body">I hold an MSc in Interactive Arts and Technology from <a href="http://www.sfu.ca/siat.html" target="_blank">SIAT, SFU.</a> My <strong><a href="https://www.researchgate.net/publication/303519177_Immersion_in_Cardboard_VR_Compared_to_a_Traditional_Head-mounted_Display" target="_blank" rel="noopener" >research and thesis</a></strong> was in the intersection of human-computer interaction and healthcare.</p>
+          <p class="about-body">I hold an MSc in Interactive Arts and Technology from <a href="http://www.sfu.ca/siat.html" target="_blank">SIAT, SFU.</a> My <strong><a href="research.html" target="_blank" rel="noopener" >research and thesis</a></strong> was in the intersection of human-computer interaction and healthcare.</p>
           
           <p class="about-body"><a href="https://www.flickr.com/photos/ayon_solitaire/albums/72157675432345410" target="_blank">Art is the love of my life</a> &mdash; I love painting and sketching in traditional media. Other than that, I also love cooking, playing ukulele, photography, and travelling.</p>
           <p class="about-body">Cat dad. Also dad to a newborn daughter.</p>
@@ -340,13 +340,26 @@ html{scroll-behavior:smooth;}
     var links=document.querySelectorAll('a[href="agentic-ux.html"], a[href="uus.html"], a[href="candidate-management.html"]');
     function setUnlocked(){ Array.prototype.forEach.call(links,function(a){ a.textContent="View case study"; }); }
     function bindModal(){ Array.prototype.forEach.call(links,function(a){ a.addEventListener("click",function(e){ e.preventDefault(); openModal(a.getAttribute("href")); }); }); }
+    var hasCrypto = !!(window.crypto && window.crypto.subtle);
     var stored=null; try{ stored=sessionStorage.getItem("cs_pw"); }catch(e){}
-    if(stored){ verify(stored).then(setUnlocked).catch(bindModal); } else { bindModal(); }
+    if(stored && hasCrypto){
+        try { verify(stored).then(setUnlocked).catch(bindModal); } catch(e){ bindModal(); }
+    } else { bindModal(); }
     form.addEventListener("submit",function(e){
-        e.preventDefault(); var pw=input.value;
-        if(!window.crypto||!crypto.subtle){ go(pw); return; }
+        e.preventDefault();
+        var pw=input.value;
         msg.style.display="none";
-        verify(pw).then(function(){ go(pw); }).catch(function(){ msg.style.display="block"; input.value=""; input.focus(); });
+        if(!hasCrypto){
+            msg.textContent="This browser can\u2019t open protected case studies. Please try Safari, Chrome, or Firefox.";
+            msg.style.display="block";
+            return;
+        }
+        var p; try { p=verify(pw); } catch(err){ p=Promise.reject(err); }
+        p.then(function(){ go(pw); }).catch(function(){
+            msg.textContent="Incorrect password. Please try again.";
+            msg.style.display="block";
+            input.value=""; input.focus();
+        });
     });
     closeBtn.addEventListener("click",closeModal);
     overlay.addEventListener("click",function(e){ if(e.target===overlay) closeModal(); });
