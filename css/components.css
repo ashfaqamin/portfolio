@@ -405,9 +405,8 @@ body:not(.ds-base) .site-nav__in { width: auto; max-width: 100%; margin-inline: 
 @media (max-width: 860px) { .recs__grid { grid-template-columns: 1fr; } }
 
 .rec { display: flex; flex-direction: column; background: var(--surface); border-radius: var(--radius-md); padding: clamp(28px, 2.4vw, 40px); box-shadow: var(--shadow-lg); }
-.rec__mark { color: var(--border); margin: 0 0 14px; line-height: 0; }
+.rec__mark { color: var(--border); line-height: 0; }
 .rec__mark svg { width: 34px; height: 34px; }
-.rec__quote { max-width: 52ch; }
 .rec__quote p { font: var(--text-body); color: var(--text); margin: 0; }
 .rec__quote p + p { margin-top: var(--space-5); }
 .rec__quote strong { font-weight: 600; }
