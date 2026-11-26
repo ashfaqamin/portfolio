@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+# Re-encrypts agentic-ux.source.html (plaintext, hand-edited) into the shipped
+# agentic-ux.html gate page. Run this after editing the source, before you push.
+#   python3 encrypt.py
+import re, os, base64, json, secrets
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+PASSWORD = "uxp1ore"          # must match the homepage modal
+HERE   = os.path.dirname(os.path.abspath(__file__))
+SOURCE = os.path.join(HERE, "agentic-ux.source.html")
+OUT    = os.path.join(HERE, "agentic-ux.html")
+
+raw = open(SOURCE).read()
+# strip front matter + optional {% raw %} wrappers -> body only
+body = re.sub(r'^---.*?---\s*', '', raw, count=1, flags=re.S)
+body = body.replace('{% raw %}', '').replace('{% endraw %}', '').strip()
+# the gate page already owns a <main>, so the content <main> becomes a <div>
+body = body.replace('<main class="ds-container">', '<div class="ds-container">', 1)
+body = re.sub(r'</main>\s*(?=<div class="lightbox")', '</div>\n', body, count=1)
+
+salt = secrets.token_bytes(16); iv = secrets.token_bytes(12)
+kdf = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=200000)
+key = kdf.derive(PASSWORD.encode())
+ct = AESGCM(key).encrypt(iv, body.encode(), None)
+ENC = json.dumps({"salt": base64.b64encode(salt).decode(),
+                  "iv":   base64.b64encode(iv).decode(),
+                  "ct":   base64.b64encode(ct).decode(),
+                  "iter": 200000})
+
+PAGE = '''---
+layout: default
+ds: true
+title: "Protected case study · Ashfaq Amin"
+---
+{%% raw %%}
+<main class="gate" id="csGate" aria-label="Protected case study">
+  <h1 class="h3">This case study is password protected</h1>
+  <p class="small">Enter the password to view it.</p>
+  <form id="csForm" class="gate__form">
+    <input type="password" id="csPw" class="field" placeholder="Password" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Password">
+    <button type="submit" class="btn btn--primary">Unlock</button>
+    <p class="small gate__err" id="csErr" role="alert" hidden>Incorrect password. Please try again.</p>
+  </form>
+</main>
+<div id="csContent"></div>
+<script>
+(function(){
+  var ENC = %s;
+  var gate=document.getElementById('csGate'), form=document.getElementById('csForm'),
+      pw=document.getElementById('csPw'), err=document.getElementById('csErr'), content=document.getElementById('csContent');
+  function b(s){return Uint8Array.from(atob(s), function(c){return c.charCodeAt(0);});}
+  function decrypt(pass){
+    var salt=b(ENC.salt), iv=b(ENC.iv), ct=b(ENC.ct);
+    return crypto.subtle.importKey("raw", new TextEncoder().encode(pass), "PBKDF2", false, ["deriveKey"])
+      .then(function(k){return crypto.subtle.deriveKey({name:"PBKDF2",salt:salt,iterations:ENC.iter,hash:"SHA-256"}, k, {name:"AES-GCM",length:256}, false, ["decrypt"]);})
+      .then(function(key){return crypto.subtle.decrypt({name:"AES-GCM",iv:iv}, key, ct);})
+      .then(function(buf){return new TextDecoder().decode(buf);});
+  }
+  function initLightbox(){
+    var lb=document.getElementById('lightbox'); if(!lb) return;
+    var lbC=document.getElementById('lbContent'), lbX=document.getElementById('lbClose'), last=null;
+    function open(node){lbC.innerHTML='';var c=node.cloneNode(true);c.removeAttribute('style');lbC.appendChild(c);last=document.activeElement;lb.classList.add('is-open');document.body.style.overflow='hidden';lbX.focus();}
+    function close(){lb.classList.remove('is-open');document.body.style.overflow='';lbC.innerHTML='';if(last)last.focus();}
+    content.querySelectorAll('.zoom').forEach(function(z){z.addEventListener('click',function(){var v=z.querySelector('img,svg,video');if(v)open(v);});});
+    var mr=document.getElementById('moreReactions'); if(mr){ mr.addEventListener('click',function(){ var im=new Image(); im.src=mr.getAttribute('data-img'); im.alt=mr.getAttribute('data-alt')||''; open(im); }); }
+    lbX.addEventListener('click',close); var dc=lb.querySelector('[data-close]'); if(dc)dc.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('is-open'))close();});
+  }
+  function initCounters(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var nums = content.querySelectorAll('.stat__num[data-to]');
+    function run(el){
+      var to=parseFloat(el.getAttribute('data-to')), suf=el.getAttribute('data-suffix')||'', pre=el.getAttribute('data-prefix')||'';
+      if(reduce){ el.textContent=pre+to+suf; return; }
+      var dur=1000, st=null;
+      function tick(t){ if(!st)st=t; var pr=Math.min((t-st)/dur,1); var e=1-Math.pow(1-pr,4); el.textContent=pre+Math.round(to*e)+suf; if(pr<1)requestAnimationFrame(tick); }
+      requestAnimationFrame(tick);
+    }
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ run(en.target); io.unobserve(en.target); } }); }, {threshold:0.4});
+      nums.forEach(function(n){ io.observe(n); });
+    } else { nums.forEach(run); }
+  }
+  function reveal(html){ content.innerHTML=html; gate.style.display='none'; try{document.title="Agentic UX vision for Customer Success · Ashfaq Amin";}catch(e){} initLightbox(); initCounters(); }
+  var stored=null; try{stored=sessionStorage.getItem("cs_pw");}catch(e){}
+  if(stored){ decrypt(stored).then(reveal).catch(function(){}); }
+  form.addEventListener("submit", function(e){
+    e.preventDefault(); err.hidden=true;
+    decrypt(pw.value).then(function(html){ try{sessionStorage.setItem("cs_pw",pw.value);}catch(e){} reveal(html); })
+      .catch(function(){ err.hidden=false; pw.value=""; pw.focus(); });
+  });
+})();
+</script>
+{%% endraw %%}
+''' % ENC
+
+open(OUT, "w").write(PAGE)
+print("Wrote", OUT, "(%d bytes)" % len(PAGE))
+
+# self-test: decrypt what we just wrote
+m = re.search(r'var ENC\s*=\s*(\{.*?\});', PAGE, re.S); e = json.loads(m.group(1))
+k2 = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=base64.b64decode(e['salt']), iterations=e['iter']).derive(PASSWORD.encode())
+back = AESGCM(k2).decrypt(base64.b64decode(e['iv']), base64.b64decode(e['ct']), None).decode()
+print("self-test decrypt OK:", back.startswith('<div class="ds-container">'), "| chars:", len(back))

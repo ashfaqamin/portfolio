@@ -361,3 +361,30 @@ body:not(.ds-base) .site-nav__in { width: auto; max-width: 100%; margin-inline: 
 
 /* a figure row placed directly in a media-row media column shouldn't add its own top gap */
 .media-row__media > .figure-row { margin-top: 0; }
+
+/* hug the first column to its content (e.g. a fixed-width figure beside flowing text),
+   so the gap to the text matches a media-row instead of leaving dead space */
+.split--hug { grid-template-columns: auto minmax(0, 1fr); }
+@media (max-width: 860px) { .split--hug { grid-template-columns: 1fr; } }
+
+/* breadcrumb trail for sub-page back-navigation (sits above the title) */
+.breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font: var(--text-small); color: var(--text-secondary); padding-top: clamp(20px, 3vw, 28px); }
+.breadcrumb a { color: var(--text-secondary); text-decoration: none; transition: color .18s ease; }
+.breadcrumb a:hover { color: var(--action-text); }
+.breadcrumb__sep { color: var(--text-tertiary); }
+.breadcrumb [aria-current="page"] { color: var(--text); }
+
+/* long-form article body for simple blog-style sub-pages: a readable measure with
+   vertical rhythm, so page markup stays just headings, paragraphs, figures and lists */
+.prose { max-width: none; }
+.prose > * + * { margin-top: var(--space-4); }
+.prose > p, .prose > ol, .prose > ul { max-width: 65rem; }
+.prose > :is(h2, h3, h4) { margin-top: clamp(32px, 4vw, 48px); }
+.prose > :is(h2, h3, h4) + * { margin-top: var(--space-3); }
+.prose > figure { margin-top: clamp(24px, 3vw, 36px); max-width: 46rem; }
+.prose > :first-child { margin-top: 0; }
+.prose ol, .prose ul { padding-left: 1.25em; }
+.prose li + li { margin-top: var(--space-2); }
+.prose li::marker { color: var(--text-tertiary); }
+.prose a:not(.btn) { color: var(--action-text); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+.prose a:not(.btn):hover { color: var(--action-hover); }
