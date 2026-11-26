@@ -130,7 +130,7 @@
 .hero { padding-top: clamp(36px, 4vw, 64px); }
 .hero__kicker { text-transform: uppercase; color: var(--text-secondary); margin: 0 0 20px; }   /* pair with .h6 */
 .hero__title { margin: 0; }                                                                     /* pair with .display-xl */
-.hero__sub { max-width: 42ch; margin: 22px 0 0; color: var(--text-secondary); }                 /* pair with .lead */
+.hero__sub { margin: 22px 0 0; color: var(--text-secondary); }                 /* pair with .lead */
 .hero__meta { display: flex; flex-wrap: wrap; gap: var(--space-6) 56px; margin-top: clamp(28px, 3.5vw, 48px); }
 .hero__meta dt { font: var(--text-small-strong); color: var(--text-secondary); margin-bottom: var(--space-2); }
 .hero__meta dd { font: var(--text-body); color: var(--text); }
@@ -307,14 +307,13 @@ body:not(.ds-base) .site-nav__in { width: auto; max-width: 100%; margin-inline: 
 .outcomes__lead { margin-top: 16px; }
 .o-agent { margin-top: clamp(48px,6vw,80px); }
 .o-agent:first-of-type { margin-top: clamp(32px,4vw,52px); }
-.o-agent__name { margin: 0 0 clamp(18px,2.2vw,24px); }
+.o-agent__name { margin: 0 0 clamp(20px,2.5vw,28px); padding-bottom: 14px; border-bottom: 1px solid var(--text); }
 .o-avail { margin: 0 0 14px; color: var(--text-secondary); }
 .stats { display: flex; flex-wrap: wrap; gap: clamp(28px,4vw,48px); align-items: baseline; }
 .stat { display: flex; flex-direction: column; gap: 8px; }
 .stat__num { color: var(--text); font-variant-numeric: tabular-nums; line-height: 1; }
-.stat__label { color: var(--text-secondary); }
+.stat__label { color: var(--text-body); }
 .stat--hero { max-width: 34ch; gap: 12px; }
-.stat--hero .stat__note { color: var(--text-secondary); }
 .o-quotes { margin-top: clamp(32px,4vw,48px); }
 .o-quotes__head { margin: 0; }
 .o-quotes .figure-row { align-items: stretch; }
@@ -388,3 +387,43 @@ body:not(.ds-base) .site-nav__in { width: auto; max-width: 100%; margin-inline: 
 .prose li::marker { color: var(--text-tertiary); }
 .prose a:not(.btn) { color: var(--action-text); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
 .prose a:not(.btn):hover { color: var(--action-hover); }
+
+/* =====================================================================
+   RECOMMENDATIONS — leader testimonials (used as a subsection under About).
+   A two-up set of soft-shadowed quote cards. The quote truncates to a fixed
+   number of lines with a real ellipsis so both cards keep the same height;
+   "View more" clears the clamp in place. Names link to the person's LinkedIn
+   (the One Voice purple); emphasis inside the quote is weight-only (<strong>).
+   Named generically, not page-specific.
+   ===================================================================== */
+.recs { margin-top: clamp(48px, 6vw, 80px); }
+.recs__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 32px; margin: 0 0 clamp(28px, 3vw, 40px); }
+.recs__head > :where(h1, h2, h3, h4) { margin: 0; }
+.recs__more { gap: 7px; }                 /* on a .btn.btn--ghost */
+.recs__more svg { width: 15px; height: 15px; }
+.recs__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 1.6vw, 24px); align-items: start; }
+@media (max-width: 860px) { .recs__grid { grid-template-columns: 1fr; } }
+
+.rec { display: flex; flex-direction: column; background: var(--surface); border-radius: var(--radius-md); padding: clamp(28px, 2.4vw, 40px); box-shadow: var(--shadow-lg); }
+.rec__mark { color: var(--border); margin: 0 0 14px; line-height: 0; }
+.rec__mark svg { width: 34px; height: 34px; }
+.rec__quote { max-width: 52ch; }
+.rec__quote p { font: var(--text-body); color: var(--text); margin: 0; }
+.rec__quote p + p { margin-top: var(--space-5); }
+.rec__quote strong { font-weight: 600; }
+/* collapsed: clamp to a fixed line count with a real ellipsis; expanded (.is-open) shows all */
+.rec:not(.is-open) .rec__quote { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 7; line-clamp: 7; overflow: hidden; }
+.rec__more { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--space-3); padding: 0; border: 0; background: none; cursor: pointer; color: var(--action-text); font: var(--text-small-strong); }
+.rec__more:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-radius: 3px; }
+.rec__more svg { width: 15px; height: 15px; transition: transform .3s cubic-bezier(.22, 1, .36, 1); }
+.rec.is-open .rec__more svg { transform: rotate(180deg); }
+.rec__more .rec__less { display: none; }
+.rec.is-open .rec__more .rec__more-label { display: none; }
+.rec.is-open .rec__more .rec__less { display: inline; }
+.rec__foot { margin-top: var(--space-6); }
+.rec__name { font: var(--text-body-strong); margin: 0; }
+.rec__name a { color: var(--action-text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .18s ease, color .18s ease; }
+.rec__name a:hover { border-bottom-color: currentColor; }
+.rec__name a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-radius: 3px; }
+.rec__role { font: var(--text-small); color: var(--text-secondary); margin: 4px 0 0; }
+@media (prefers-reduced-motion: reduce) { .rec__more svg { transition: none; } }

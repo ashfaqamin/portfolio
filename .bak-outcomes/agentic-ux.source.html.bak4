@@ -1,0 +1,445 @@
+---
+layout: default
+ds: true
+title: "Agentic UX vision for Customer Success · Ashfaq Amin"
+---
+<main class="ds-container">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Introduction">
+    <p class="h6 hero__kicker">HubSpot · 2025–2026</p>
+    <h1 class="display-xl hero__title">Agentic UX vision<br>and implementation<br> for HubSpot's Customer Success</h1>
+    <p class="lead hero__sub">Grounded in research, I defined the UX vision that turns days of a rep's manual work into hours through agentic systems, enabling CS reps and teams to hit their raised organizational targets. Further in-depth research and user testing before implementation significantly changed product directions of these agents.</p>
+    <dl class="hero__meta">
+      <div>
+        <dt>Role</dt>
+        <dd>UX Lead</dd>
+      </div>
+      <div>
+        <dt>Scope</dt>
+        <dd>Research<br>System design<br>Vibecoded prototypes<br>End-to-end experience</dd>
+      </div>
+      <div>
+        <dt>Teams</dt>
+        <dd>PM, TL, EL, Group leads<br>Data Science<br>Cross-functional business stakeholders and partners<br>Design System</dd>
+      </div>
+      <div>
+        <dt>Recognition</dt>
+        <dd><strong>Craft Award</strong> (among all UX teams) in 2025</dd>
+      </div>
+    </dl>
+    <!--
+    <div class="hero__media"><span>An illustrative image showing screens from the different agents</span></div>
+    -->
+    
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="section" id="overview" aria-label="Overview">
+    <h1 class="display">Overview</h1>
+    <div class="panel panel--warm">
+      <div class="split split--aside">
+        <div>
+          <p class="section__eyebrow">The problem</p>
+          <p class="body">CS reps spent days preparing just to decide which customers needed outreach, and in what order. Churn risk often hid in conversations other reps had with the account, even while the usage data looked healthy. And after every connected call, reps lost hours to the follow-up, because not every customer question could be answered live and most issues couldn't be resolved on the spot.</p>
+        </div>
+        <figure>
+          <button class="zoom" aria-label="Open the system architecture diagram larger">
+            <span class="frame"><img src="img/proactive_ai_vision/simplified-system-architecture.png" alt="Simplified system architecture: a context layer feeding an orchestrator that triggers the outreach, meeting, live-call and success agents"></span>
+            <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <figcaption class="figcaption"><span class="figcaption__n">Fig 1:</span> A simplified architecture of the system.</figcaption>
+        </figure>
+      </div>
+      <p class="section__eyebrow">The approach</p>
+      <p class="lead">The Success Assistant already let reps ask the AI anything and get a useful answer, but it was <strong>reactive</strong>; it waited to be asked. This vision makes Customer Success <strong>proactive</strong>: a system that catches risk and opportunity before a rep would, prepares the response as reviewable drafts, and leaves every decision with the rep. It works as one arc:</p>
+      <div class="steps steps--row">
+        <div class="steps__item">
+          <h3 class="steps__title"><span class="steps__n">1</span>Prioritize the book</h3>
+          <p class="steps__body">The Orchestrator is the proactive engine, not an agent reps talk to. It continuously reads the context layer and the rep's whole book for the two signals humans miss: accounts sliding toward churn while the usage still looks healthy, and accounts ready to grow. It ranks who needs the rep today, shows why, and sets the downstream agents to work.</p>
+        </div>
+        <div class="steps__item">
+          <h3 class="steps__title"><span class="steps__n">2</span>Reach out</h3>
+          <p class="steps__body">The Outreach agent drafts proactive, personalized outreach in the rep's voice, timed to that account's moment. The rep reviews, adjusts, and sends. The agent writes; the rep decides.</p>
+        </div>
+        <div class="steps__item">
+          <h3 class="steps__title"><span class="steps__n">3</span>Meet and follow-up</h3>
+          <p class="steps__body">The Meeting agent drafts the prep before the call and the recap after, while the Live call assistant surfaces answers in the moment. Prep, live call, and recap flow as one experience, each a draft the rep confirms, and the recap feeds the next cycle so the system sharpens over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOVERY -->
+  <section class="section" id="discover" aria-label="Discovery research">
+    <h1>Discovery research</h1>
+    <p class="body">I built the vision on the following three layers of evidence:</p>
+    <div class="card-grid">
+      <div class="card">
+        <h3 class="card__title">Synthesized existing research</h3>
+        <ul>
+          <li>I pulled every relevant past study, mine and other designers', into NotebookLM to surface recurring pain-point themes and map the rep's journeys.</li>
+          <li>These journeys uncovered where automation will be useful.</li>
+          <li>NotebookLM let cross-functional stakeholders ask deeper questions and validate the findings and direction.</li>
+        </ul>
+        <div class="tag-row"><span class="tag">Research synthesis</span><span class="tag">Journey mapping</span></div>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Mined the Success Assistant's chat logs</h3>
+        <p class="card__text">I had designed HubSpot CS's <strong>first conversational AI assistant</strong> before this vision. Using Claude, I analyzed its real chat logs against the pain themes, cross-matching to see what reps were actually trying to accomplish with proprietary HubSpot data behind the assistant.</p>
+        <div class="tag-row"><span class="tag">Behavioural log analysis</span></div>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Validated with CS reps</h3>
+        <p class="card__text">I interviewed CS reps of varying tenures and geo-locations to pressure-test the themes and pinpoint where the real gaps were, grounding the vision in their reality.</p>
+        <div class="tag-row"><span class="tag">In-depth interviews</span></div>
+      </div>
+    </div>
+
+    <div class="panel panel--warm">
+      <div class="insight">
+        <div>
+          <p class="lead">Reps were spending days deciding who to call, right as the bar for connected calls got higher.</p>
+          <p class="insight__label">The core insight</p>
+        </div>
+        <div class="insight__body">
+          <p>Reps spent a huge share of their time just prioritizing their book of business, manually combining:</p>
+          <ul>
+            <li>Unified Usage Score (a health model I had designed earlier)</li>
+            <li>Past conversations, literally reading through engagements (emails, call logs, notes)</li>
+            <li>Subscription data</li>
+            <li>Product updates that fit a particular customer need</li>
+          </ul>
+          <p>Success Assistant helped prioritize, draft outreach and prep a lot faster than before, but it still required reps to prompt it well. At that moment, most reps weren't AI fluent, and most of what they were trying to do could be automated and performed upfront for them to review.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGNING THE SYSTEM -->
+  <section class="section" id="design" aria-label="Designing the system end-to-end">
+    <h1>Designing the system end-to-end</h1>
+    <div class="media-row">
+      <div class="media-row__text">
+        <h2 class="media-row__lead">A completely redesigned CS Workspace, where reps begin their day without piecing together what to do next.</h2>
+        <ul>
+          <li>Top priorities are surfaced, ranked, and ready to go: no digging, no second-guessing.</li>
+          <li>AI-prepared strategies, emails, and plans are waiting at their fingertips.</li>
+          <li>Calendar, goals, and metrics all in one view, seamlessly connected.</li>
+          <li>With the Success Assistant built in, the rep doesn't work alone. One click to shift focus, refine priorities, or ask it to spotlight something new.</li>
+        </ul>
+        <div class="tag-row"><span class="tag">Orchestrator agent</span></div>
+      </div>
+      <figure class="media-row__media">
+        <button class="zoom" aria-label="Enlarge the CS Workspace walkthrough">
+          <span class="frame"><video autoplay loop muted playsinline aria-label="CS Workspace walkthrough: prioritized actions, schedule, metrics, and the Success Assistant panel"><source src="img/proactive_ai_vision/s1.webm" type="video/webm"><source src="img/proactive_ai_vision/s1.mp4" type="video/mp4"></video></span>
+          <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <figcaption class="figcaption"><span class="figcaption__n">Fig 2:</span> The rep lands in CS Workspace upon login and sees today's priorities in ranked order. The system can suggest events on their calendar. Success Assistant surfaces page-aware canned prompts.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="actions-view" aria-label="Actions-focused view">
+    <div class="media-row media-row--flip">
+      <div class="media-row__text">
+        <h2 class="media-row__lead">Actions focused view – where things get done</h2>
+        <ul>
+          <li>This is where the rep moves from one high-impact task to the next, seamlessly.</li>
+          <li>Whatever the task - a follow-up, a save play, or a key email - it's already teed up and ready for them to review and confirm. No digging, no switching tools.</li>
+          <li>And if they need more context or want to tweak something, the Success Assistant is right there on the side - not flooding them with information, just offering exactly what they need, when they need it.</li>
+          <li>With the Success Assistant built in, the rep doesn't work alone. One click to shift focus, refine priorities, or ask it to spotlight something new.</li>
+        </ul>
+      </div>
+      <figure class="media-row__media">
+        <button class="zoom" aria-label="Enlarge the actions-focused view">
+          <span class="frame"><video autoplay loop muted playsinline aria-label="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"><source src="img/proactive_ai_vision/s2.webm" type="video/webm"><source src="img/proactive_ai_vision/s2.mp4" type="video/mp4"></video></span>
+          <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <figcaption class="figcaption"><span class="figcaption__n">Fig 3:</span> An email draft prepared by Outreach Agent. The rep reviews, refines part of it and sends confidently.</figcaption>
+      </figure>
+    </div>
+  
+    <div class="panel panel--warm">
+      <div class="media-row__text">
+        <h2 class="media-row__lead">From scattered meeting prep to confident conversations.</h2>
+        <ul>
+          <li>The Orchestrator triggers the <strong>Meeting Agent</strong> upon reading the rep's calendar and creates prep material for upcoming customer calls.</li>
+          <li>The agent performs a comprehensive research of the customer analyzing usage trends, business goals, renewal info, and past engagements. This research used to take days before AI.</li>
+          <li>Success Assistant, fully aware of the meeting context, helps the rep with any question they have about the customer — all without leaving their prep view.</li>
+          <li>When they highlight a detail, a quick prompt pop-up lets them ask deeper questions in place, making every insight just a click away.</li>
+        </ul>
+      </div>
+      
+      <div class="figure-row">
+        <figure class="media-row__media">
+          <button class="zoom" aria-label="Enlarge the actions-focused view">
+            <span class="frame"><video autoplay loop muted playsinline aria-label="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"><source src="img/proactive_ai_vision/prep-agent.webm" type="video/webm"><source src="img/proactive_ai_vision/prep-agent.mp4" type="video/mp4"></video></span>
+            <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <figcaption class="figcaption"><span class="figcaption__n">Fig 4:</span> The agent reads across - engagement history, usage patterns, renewal timelines - and assembles a tailored prep briefing for every customer call. It ensures CS reps walk into meetings ready to advise, not scramble.</figcaption>
+        </figure>
+        <figure class="media-row__media">
+          <button class="zoom" aria-label="Enlarge the actions-focused view">
+            <span class="frame"><video autoplay loop muted playsinline aria-label="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"><source src="img/proactive_ai_vision/prep-agent-2.webm" type="video/webm"><source src="img/proactive_ai_vision/prep-agent-2.mp4" type="video/mp4"></video></span>
+            <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <figcaption class="figcaption"><span class="figcaption__n">Fig 5:</span> The rep can modify the prep content with or without the help of AI.</figcaption>
+        </figure>
+      </div>
+      
+    </div>
+  </section>
+
+    <section class="section" id="live-call" aria-label="Live meeting assistant">
+    <div class="media-row media-row--flip">
+      <div class="media-row__text">
+        <h2 class="media-row__lead">Live meeting assistant: real-time insights during customer call.</h2>
+        <ul>
+          <li>As the meeting begins, Live Assistant joins the rep on Zoom, quietly listening and providing real-time insights based on the conversation.</li>
+          <li>On one tab, they see live insights, relevant discovery questions, next-step ideas, or helpful resources surfaced in the moment.</li>
+          <li>On the other, her saved talking points from meeting prep appear, so she never has to switch tabs or windows.</li>
+        </ul>
+        <p>The rep stays fully present with the customer, listening, engaging, and leading with confidence.</p>
+      </div>
+      <figure class="media-row__media">
+        <button class="zoom" aria-label="Enlarge the live meeting assistant">
+          <span class="frame"><video autoplay loop muted playsinline aria-label="Live meeting assistant on a Zoom call: real-time insights on one side, saved prep notes on the other"><source src="img/proactive_ai_vision/live-call-assistant.webm" type="video/webm"><source src="img/proactive_ai_vision/live-call-assistant.mp4" type="video/mp4"></video></span>
+          <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <figcaption class="figcaption"><span class="figcaption__n">Fig 6:</span> During a live customer call, the assistant listens on Zoom and surfaces real-time insights beside the rep's saved prep notes, so they stay present without switching tabs.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="meeting-recap">
+    <div class="media-row">
+      <div class="media-row__text">
+        <h2 class="media-row__lead">Post-meeting: AI captures notes and recommends next steps.</h2>
+        <ul>
+          <li>As the meeting wraps up, the rep doesn't need to take notes or write a recap from scratch, as key moments, summaries, and recommended next steps are automatically captured.</li>
+          <li>The transcript and recording are also available, giving the rep confidence that nothing was missed.</li>
+          <li>The rep closes the meeting with clarity, and a clear plan to follow through.</li>
+        </ul>
+        
+      </div>
+      <figure class="media-row__media">
+        <button class="zoom" aria-label="Enlarge the post-meeting recap">
+          <span class="frame"><img src="img/proactive_ai_vision/meeting-recap.jpg" alt="Post-meeting recap: auto-captured key moments, a summary, and recommended next steps, with the transcript and recording available"></span>
+          <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <figcaption class="figcaption"><span class="figcaption__n">Fig 7:</span> The moment the call ends, the system captures key moments, a summary, and recommended next steps, with the full transcript and recording on hand.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="multi-agent" aria-label="Multiple agents in action">
+    <div class="media-row media-row--flip">
+      <div class="media-row__text">
+        <h2 class="media-row__lead">Multiple agents can get triggered for one customer portal. The rep sees a streamlined sequence of agent outputs to review and complete the action.</h2>
+        <p>In this example, the system grouped a set of actions into one guided sequence - so the rep can review a tailored growth plan and send it, all in one place.</p>
+      </div>
+      <figure class="media-row__media">
+        <button class="zoom" aria-label="Enlarge the actions-focused view">
+          <span class="frame"><video autoplay loop muted playsinline aria-label="Actions-focused view: the next high-impact task teed up, with the Success Assistant on the side"><source src="img/proactive_ai_vision/s3.webm" type="video/webm"><source src="img/proactive_ai_vision/s3.mp4" type="video/mp4"></video></span>
+          <span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <figcaption class="figcaption"><span class="figcaption__n">Fig 8:</span> Under one action, the rep sees a success plan drafted by the Success agent, and a draft email written by the Outreach agent.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="implementation">
+    <p class="eyebrow">The implementation</p>
+    <h2 class="h2">How each part got built</h2>
+    <p class="lead ds-measure process__intro">Every agent experience went through the same process, from discovery research to a detailed Figma hand-off.</p>
+
+    <ol class="process">
+      <li>
+        <span class="process__n">01</span>
+        <h3 class="h5 process__title">Discovery research</h3>
+        <p class="small process__desc">In-depth interviews with reps of varying tenure across every region, plus prototype testing to find the gaps.</p>
+      </li>
+      <li>
+        <span class="process__n">02</span>
+        <h3 class="h5 process__title">Findings and direction</h3>
+        <p class="small process__desc">Published the findings with a recommended design direction, then shared them with teams and business stakeholders for visibility and alignment.</p>
+      </li>
+      <li>
+        <span class="process__n">03</span>
+        <h3 class="h5 process__title">Iterate the prototype</h3>
+        <p class="small process__desc">Reworked the prototype to incorporate the findings, partnering with the Design System team to build new components or patterns where needed.</p>
+      </li>
+      <li>
+        <span class="process__n">04</span>
+        <h3 class="h5 process__title">Design spec hand-off</h3>
+        <p class="small process__desc">Handed off a detailed Figma design spec for build.</p>
+      </li>
+    </ol>
+
+    <figure class="figure process__proof">
+      <span class="frame"><img src="img/proactive_ai_vision/research-docs.png" alt="The research paper trail: discovery plan, interview guide, research synthesis, and Figma hand-off spec."></span>
+      <figcaption class="figcaption">The paper trail behind every part: discovery plan, interview guide, research synthesis, and design decisions.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="walkthrough" aria-label="Prototype walkthrough">
+    <div class="media-row">
+      <div class="media-row__text">
+        <h2 class="media-row__lead">Demo over memo – with vibecoded prototypes</h2>
+        <p class="body ds-measure">I used Lovable for early concept prototyping. Later I also utilized Claude as we shipped the vision into production. At every stage, I shared Loom walkthroughs of the prototypes to align the teams and stakeholders.</p>
+      </div>
+      <figure class="figure">
+        <span class="frame">
+          <iframe src="https://drive.google.com/file/d/1hhiOkHI1tYucex7tNP9RbiBjwoJDDJP3/preview" allow="autoplay; fullscreen" allowfullscreen title="End-to-end prototype walkthrough"></iframe>
+        </span>
+        <figcaption class="figcaption"><span class="figcaption__n">Fig 9:</span> The end-to-end Meeting Experience walkthrough I recorded to align teams and stakeholders on the vision.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="key-findings">
+    <p class="eyebrow">Vision vs. the implementation</p>
+    <h2 class="h2">Key discovery moments</h2>
+    <p class="lead ds-measure">Five moments where user research and testing reshaped the design, and one that changed the whole product direction.</p>
+
+    <div class="fgroup">
+      <div class="fgroup__head"><h3 class="h5 fgroup__n">Outreach Agent</h3></div>
+
+      <div class="finding">
+        <div class="finding__insight">
+          <p class="finding__label">Finding 01</p>
+          <p class="lead">Reps loved a draft prepared for review, but they wouldn't send it. They couldn't see how the agent decided what to write, and checking it by hand meant redoing the exact manual work the agent was meant to remove.</p>
+          <p class="body finding__body">So I surfaced the agent's reasoning and its source citations at the top of the email composer, with the generated draft directly below. Reps could see why each point was made, and trust the draft enough to actually send it.</p>
+        </div>
+        <div class="finding__response">
+          <figure class="figure finding__fig"><button class="zoom" aria-label="Enlarge the email composer"><span class="frame"><img src="img/proactive_ai_vision/outreach-agent.png" alt="Email composer showing the agent's reasoning and source citations above the generated draft."></span><span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><figcaption class="figcaption">Reasoning and sources sit above the draft, so the rep can verify without redoing the research.</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding__insight">
+          <p class="finding__label">Finding 02</p>
+          <p class="lead">Our design system wasn't ready for AI patterns. The composer could only Regenerate at random, with no way to steer it by prompt, and without real control reps would never feel ownership of the output.</p>
+        </div>
+        <div class="finding__response">
+          <p class="finding__label" aria-hidden="true" style="visibility:hidden;">Finding 02</p>
+          <p class="body finding__body">This was a moment I broke from my usual approach and did not reuse an existing component. I pushed to build a new prompt-driven Regenerate for Alpha, even though it meant a significant increase in engineering scope, and made the case that it was too integral to cut. I took the design to the Design System team to implement as a shared pattern, which other teams later reused.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fgroup">
+      <div class="fgroup__head"><h3 class="h5 fgroup__n">Meeting Prep</h3></div>
+      <div class="finding-pair">
+        <div class="fitem">
+          <p class="fitem__label">Finding 03</p>
+          <p class="lead">Prep had to arrive in the customer's language. Otherwise reps would translate and rewrite it themselves, spending the very time we were trying to save and putting adoption targets at risk.</p>
+          <p class="body fitem__body">So prep generates in the customer's language from the start, with no manual translation step.</p>
+        </div>
+        <div class="fitem">
+          <p class="fitem__label">Finding 04</p>
+          <p class="lead">Junior reps wanted detailed prep; tenured reps wanted high-level bullets and the choice to dig deeper only when needed. Everyone wanted to spend as little time as possible getting current on a customer.</p>
+          <p class="body fitem__body">So the system tailors the depth of prep to the rep's tenure and seniority. Anyone can Regenerate to adjust, and the system learns and adapts to their preference over time.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fgroup">
+      <div class="fgroup__head"><h3 class="h5 fgroup__n">Meeting Recap</h3></div>
+
+      <div class="finding">
+        <div class="finding__insight">
+          <p class="finding__label">Finding 05</p>
+          <p class="lead">The finding that changed the most. I assumed reps needed a summary and notes captured to the customer record. The real pain was doing the action items from the call, the research and follow-up that came after.</p>
+          <p class="body finding__body">So I reframed Recap from a note-taker into a follow-through system that drafts what the rep needs to do next. When a follow-up email is needed, it triggers the Outreach Agent to prepare it.</p>
+        </div>
+        <div class="finding__response">
+          <figure class="figure finding__fig"><button class="zoom" aria-label="Enlarge the follow-through system"><span class="frame"><video autoplay loop muted playsinline aria-label="The follow-through system drafting the rep's action items from the call."><source src="img/proactive_ai_vision/meeting-follow-through.webm" type="video/webm"><source src="img/proactive_ai_vision/meeting-follow-through.mp4" type="video/mp4"></video></span><span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><figcaption class="figcaption">Recap becomes a follow-through system, drafting the action items and the follow-up email.</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="section" id="outcomes" aria-label="The outcome">
+    <p class="eyebrow">The outcome</p>
+    <h2 class="h2">Shipped to every rep, and adopted fast</h2>
+    <p class="lead">During my time on the team we shipped Outreach, Meeting Prep, and Recap to every CS rep. Those three reshaped how CS runs day to day and helped move the org's revenue targets. The rest of the vision was still in build.</p>
+
+    <!-- Outreach agent -->
+    <div class="o-agent">
+      <h3 class="h4 o-agent__name">Outreach agent</h3>
+      <div class="split">
+        <div class="stat stat--hero">
+          <span class="stat__num display-xl" data-to="90" data-prefix="~" data-suffix="%">~0%</span>
+          <span class="stat__label">of reps were exceeding their monthly connected-call target of 80. This agent made outreach leading to a connected call significantly faster.</span>
+        </div>
+        <div>
+          <p class="label o-avail">Post global availability</p>
+          <div class="stats">
+            <div class="stat"><span class="stat__num display-l" data-to="98" data-suffix="%">0%</span><span class="stat__label">Adoption</span></div>
+            <div class="stat"><span class="stat__num display-l" data-to="81" data-suffix="%">0%</span><span class="stat__label">Retention</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel--warm o-quotes">
+        <p class="h5 o-quotes__head">What reps said</p>
+        <div class="figure-row figure-row--3">
+          <figure class="o-quote"><p class="rec__mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 6C6.46 6 4 8.46 4 11.5V18h6.5v-6.5H7.5c0-1.66 1.34-3 3-3V6Zm10 0C16.46 6 14 8.46 14 11.5V18h6.5v-6.5h-3c0-1.66 1.34-3 3-3V6Z"/></svg></p><blockquote class="body">What usually takes me 2 to 3 hours was done in 10 to 15 minutes. While writing the message, two customers already booked a call.</blockquote><figcaption class="small-strong o-quote__by">Senior CSM, Upmarket</figcaption></figure>
+          <figure class="o-quote"><p class="rec__mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 6C6.46 6 4 8.46 4 11.5V18h6.5v-6.5H7.5c0-1.66 1.34-3 3-3V6Zm10 0C16.46 6 14 8.46 14 11.5V18h6.5v-6.5h-3c0-1.66 1.34-3 3-3V6Z"/></svg></p><blockquote class="body">They're brilliant. It doesn't sound too AI, and it adapts the language between Swedish and English.</blockquote><figcaption class="small-strong o-quote__by">Lead CSM, Upmarket</figcaption></figure>
+          <figure class="o-quote"><p class="rec__mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 6C6.46 6 4 8.46 4 11.5V18h6.5v-6.5H7.5c0-1.66 1.34-3 3-3V6Zm10 0C16.46 6 14 8.46 14 11.5V18h6.5v-6.5h-3c0-1.66 1.34-3 3-3V6Z"/></svg></p><blockquote class="body">Cutting 2 to 3 hours down to about 15 minutes, and driving bookings while you write, is next level.</blockquote><figcaption class="small-strong o-quote__by">Lead CSM, Upmarket</figcaption></figure>
+        </div>
+        <button class="btn btn--secondary btn--sm" id="moreReactions" type="button" data-img="img/proactive_ai_vision/oa-reaction.png" data-alt="Slack thread of Upmarket CSM reactions to the Outreach Agent">More rep quotes</button>
+      </div>
+    </div>
+
+    <!-- Meeting prep + recap -->
+    <div class="o-agent">
+      <div class="split">
+        <div>
+          <h3 class="h4 o-agent__name">Meeting prep</h3>
+          <div class="stat stat--hero">
+            <span class="stat__num display-l" data-to="15" data-prefix="~" data-suffix=" min">~0 min</span>
+            <span class="stat__label">down from about 2 hours average prep time.</span>
+          </div>
+          <p class="label o-avail">Post global availability</p>
+          <div class="stats">
+            <div class="stat"><span class="stat__num display-l" data-to="94" data-suffix="%">0%</span><span class="stat__label">Adoption</span></div>
+            <div class="stat"><span class="stat__num display-l" data-to="84" data-suffix="%">0%</span><span class="stat__label">Retention</span></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="h4 o-agent__name">Meeting recap</h3>
+          <div class="stat stat--hero">
+            <span class="stat__num display-l" data-to="40" data-suffix=" min">~0 min</span>
+            <span class="stat__label">down from a two-day average follow-up.</span>
+          </div>
+          <p class="label o-avail">Post global availability</p>
+          <div class="stats">
+            <div class="stat"><span class="stat__num display-l" data-to="96" data-suffix="%">0%</span><span class="stat__label">Adoption</span></div>
+            <div class="stat"><span class="stat__num display-l" data-to="88" data-suffix="%">0%</span><span class="stat__label">Retention</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recognition -->
+    <div class="split o-award">
+      <div>
+        <p class="eyebrow">Recognition</p>
+        <h1>A UX Craft Award for the vision</h1>
+        <p>In Q3 2025 this work earned a Craft Award, selected among all ux team works and awarded during "UX All Teams" meeting.</p>
+      </div>
+      <figure class="figure finding__fig"><button class="zoom" aria-label="Enlarge the email composer"><span class="frame"><img src="img/proactive_ai_vision/craft-award.jpg" alt="Company UX all hand announcement for craft award"></span><span class="zoom__hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button></figure>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged view">
+  <div class="lightbox__scrim" data-close></div>
+  <button class="lightbox__close" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <div class="lightbox__content" id="lbContent"></div>
+</div>
